@@ -52,3 +52,13 @@ python tools/audit.py
 감사 도구만 `pypdf`가 필요하며 `pip install -r tools/requirements.txt`로 설치할 수 있습니다. 집계기·재현 검증기에는 외부 패키지가 필요 없습니다. 검증 결과와 배포 상태는 최상위 전달 문서에 기록합니다.
 
 기술 참고: [Next.js 정적 내보내기](https://nextjs.org/docs/app/guides/static-exports), [Tailwind CSS의 Next.js 설정](https://tailwindcss.com/docs/installation/framework-guides/nextjs).
+
+## GitHub Actions → GitHub Pages
+
+`.github/workflows/pages.yml`이 main에 변경이 올라올 때마다 정적 사이트를 빌드하고 검증 후 Pages에 게시합니다. Vercel 계정이나 별도 API 키는 필요 없습니다.
+
+최초 한 번 저장소 **Settings → Pages → Build and deployment → Source → GitHub Actions**를 선택하세요. 이후 Actions의 **Build and deploy portfolio → Run workflow**를 실행하면 됩니다. 성공한 배포의 URL은 Actions의 github-pages 환경에서 확인합니다.
+
+프로젝트 경로 `/my_pofol`을 빌드 시 적용해 스타일·PDF·ZIP 링크가 정상 작동하도록 구성했습니다. 로컬에서 같은 경로를 검증하려면 `NEXT_PUBLIC_BASE_PATH=/my_pofol npm run build` 후 `NEXT_PUBLIC_BASE_PATH=/my_pofol python tools/check_export.py`를 실행합니다. Windows PowerShell에서는 `$env:NEXT_PUBLIC_BASE_PATH='/my_pofol'`을 먼저 설정하세요. Vercel이나 루트 경로 호스팅에서는 이 환경변수를 설정하지 않습니다.
+
+배포 대상은 `out/`뿐입니다. GitHub Actions에는 원본 리추얼을 업로드하지 않으며, 갱신기 검증은 합성 예제만 사용합니다. 실제 통계 갱신은 계속 비공개 로컬 입력에서 수행하고 검토한 집계만 커밋합니다.
