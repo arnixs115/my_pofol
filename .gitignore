@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+__pycache__/
+private/
+updater/input/
+.env*
+!*.example
+ritual-history-*
+*아직_도착하지_않은_사람의_지도*

@@ -1,0 +1,46 @@
+{
+  "checks": [
+    "byte-identical repeat",
+    "row-order independence",
+    "aggregate invariants",
+    "free-text non-disclosure",
+    "duplicate rejection",
+    "date/type validation",
+    "ambiguous status rejection",
+    "blank/null handling"
+  ],
+  "sha256": {
+    "growth-stats.json": "e8ac278641b2522804339ba5c7f15a4adce6a1a2a3d8fc302dc13328f94b3b4b",
+    "paragraph-candidate.json": "71e20413c8ecb088f1ae13e63b8e85e3a83fa392bed331b23dba4dd95d4876e5"
+  },
+  "stats": {
+    "closeDays": 2,
+    "monthly": [
+      {
+        "close": 2,
+        "days": 2,
+        "month": "2026-01",
+        "open": 2
+      },
+      {
+        "close": 0,
+        "days": 1,
+        "month": "2026-02",
+        "open": 1
+      }
+    ],
+    "openDays": 3,
+    "period": {
+      "end": "2026-02-01",
+      "start": "2026-01-01"
+    },
+    "recordedDays": 3,
+    "schemaVersion": 1,
+    "strength": {
+      "other": 0,
+      "partial": 1,
+      "practiced": 1
+    }
+  },
+  "status": "PASS"
+}

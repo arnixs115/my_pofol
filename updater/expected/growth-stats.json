@@ -1,0 +1,29 @@
+{
+  "closeDays": 2,
+  "monthly": [
+    {
+      "close": 2,
+      "days": 2,
+      "month": "2026-01",
+      "open": 2
+    },
+    {
+      "close": 0,
+      "days": 1,
+      "month": "2026-02",
+      "open": 1
+    }
+  ],
+  "openDays": 3,
+  "period": {
+    "end": "2026-02-01",
+    "start": "2026-01-01"
+  },
+  "recordedDays": 3,
+  "schemaVersion": 1,
+  "strength": {
+    "other": 0,
+    "partial": 1,
+    "practiced": 1
+  }
+}
