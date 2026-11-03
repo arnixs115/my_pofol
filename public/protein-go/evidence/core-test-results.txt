@@ -1,0 +1,14 @@
+✔ blank, injection, noninteger, exponential, invalid ranges are rejected without throwing (0.9932ms)
+✔ quantiles use linear interpolation; empty and singleton inputs are safe (0.2422ms)
+✔ public numeric dataset integrity and known whole-data statistics (15.9687ms)
+✔ bin edges, ECDF ties, and outside-range inputs are exact (30.2101ms)
+✔ all observations conserved in length and GO histograms (22.1078ms)
+✔ data.js exactly equals distributed CSV; all six research outcomes preserved (19.6712ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 197.4041

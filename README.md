@@ -62,3 +62,11 @@ python tools/audit.py
 프로젝트 경로 `/my_pofol`을 빌드 시 적용해 스타일·PDF·ZIP 링크가 정상 작동하도록 구성했습니다. 로컬에서 같은 경로를 검증하려면 `NEXT_PUBLIC_BASE_PATH=/my_pofol npm run build` 후 `NEXT_PUBLIC_BASE_PATH=/my_pofol python tools/check_export.py`를 실행합니다. Windows PowerShell에서는 `$env:NEXT_PUBLIC_BASE_PATH='/my_pofol'`을 먼저 설정하세요. Vercel이나 루트 경로 호스팅에서는 이 환경변수를 설정하지 않습니다.
 
 배포 대상은 `out/`뿐입니다. GitHub Actions에는 원본 리추얼을 업로드하지 않으며, 갱신기 검증은 합성 예제만 사용합니다. 실제 통계 갱신은 계속 비공개 로컬 입력에서 수행하고 검토한 집계만 커밋합니다.
+
+## BR-B Protein GO Explorer
+
+대표작에 논문 기반 정적 앱을 연결했습니다. `public/protein-go/index.html`에서 실행하며 공개 배포 시 `/my_pofol/protein-go/index.html` 경로를 사용합니다. 실행 묶음은 `public/protein-go-explorer.zip`입니다. 앱은 외부 의존성·로그인·API 키 없이 작동합니다. 숫자형 관측치 20,431개와 검증된 논문 통계만 사용하며 원자료 식별자·단백질명·유전자명은 제외했습니다.
+
+앱의 README·SUBMISSION·evidence를 참고하세요. 동료 피드백과 사용자 판단의 마지막 문장은 실제 응답을 받아야 하며 창작하지 않았습니다. `node --test public/protein-go/tests/core.test.cjs`로 앱 계산을 확인합니다.
+
+GitHub Pages는 `.github/workflows/pages.yml` 하나로 배포합니다. 중복 배포를 방지하기 위해 나중에 추가된 `nextjs.yml` 예시 워크플로를 통합했습니다.

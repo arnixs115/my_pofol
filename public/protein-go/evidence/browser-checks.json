@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "surface": "ChatGPT in-app browser, local HTTP",
+  "checks": [
+    {
+      "input": "",
+      "error": "길이는 1~1,000,000 사이의 정수로 입력해 주세요. 예: 350",
+      "resultsHidden": true
+    },
+    {
+      "input": "-1",
+      "error": "길이는 1~1,000,000 사이의 정수로 입력해 주세요. 예: 350",
+      "resultsHidden": true
+    },
+    {
+      "input": "1.5",
+      "error": "길이는 1~1,000,000 사이의 정수로 입력해 주세요. 예: 350",
+      "resultsHidden": true
+    },
+    {
+      "input": "1000001",
+      "error": "길이는 1~1,000,000 aa 범위에서 입력해 주세요.",
+      "resultsHidden": true
+    },
+    {
+      "input": "<script>",
+      "error": "길이는 1~1,000,000 사이의 정수로 입력해 주세요. 예: 350",
+      "resultsHidden": true
+    },
+    {
+      "recovery": "350 aa의 위치",
+      "category": "MF · 분자 기능 · 7,235개 단백질의 실제 주석 수. 평균·중앙값은 이 구간의 기술통계입니다.",
+      "stats": "중앙값\n2.0 개\n사분위 범위\n1.0–4.0 개\n평균\n2.77 개\n주석 0개\n1,165 단백질"
+    },
+    {
+      "condition": "ρ = 0.2013\nn = 19,031 · 95% CI 0.1879–0.2155\n\nGene ID 누락 1,277개·복수 매핑 99개·동일 Gene ID 중복 24개를 제외했습니다. 단일 Gene ID별 accession 오름차순 첫 항목을 선택했습니다. 생물학적 대표 단백질 선정 기준이 아니며 감소를 중복 제거만의 효과로 해석할 수 없습니다.\n\n기본 분석 대비 Δρ = -0.0691"
+    },
+    {
+      "outside": "입력 길이가 관측 범위(2~34,350 aa) 밖입니다. 누적비율만 표시하며 구간 통계와 예측값은 제공하지 않습니다."
+    }
+  ],
+  "reportDownload": true,
+  "mobileViewport": 390,
+  "mobileDocumentWidth": 375,
+  "consoleErrors": []
+}

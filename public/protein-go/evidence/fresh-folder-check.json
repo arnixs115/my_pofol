@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "method": "Password-free ZIP extracted to a newly generated brb-fresh-* folder. README Python standard-library HTTP server method run from that extracted folder.",
+  "node_tests": "6 passed in extracted folder",
+  "browser_checks": {
+    "length_350_ecdf": "41.26%",
+    "length_350_bin": "250–499 aa, n=7235",
+    "mf_median": 2,
+    "mf_mean_rounded": 2.77,
+    "nozero_rho": 0.2331,
+    "nozero_n": 19375
+  },
+  "limits": "Direct file-protocol navigation is blocked by the browser verification tool URL policy, so direct file opening was not tested. The documented local HTTP alternative was verified. Python 3 is required for that alternative, but no extra packages are needed."
+}

@@ -31,6 +31,8 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Test Protein GO Explorer
+        run: node --test public/protein-go/tests/core.test.cjs
       - name: Build static site
         run: npm run build
       - name: Verify updater with synthetic input only

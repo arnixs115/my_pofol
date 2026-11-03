@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "checked_files": 19,
+  "findings": [],
+  "data_rows": 20431,
+  "manual_review": "New app prose contains no real person names/contact details; no paper PDF, original identifiers, private ritual records, env files, credentials, or browser logs with local paths are included. Institutional attribution retained.",
+  "limitations": "Pattern scan plus manual content review; not a guarantee of detecting every possible secret."
+}

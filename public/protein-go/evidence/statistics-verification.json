@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "source_repository": "https://github.com/arnixs115/protein-go-research",
+  "source_git_blob_sha": "2ffc1e551bb42fe0a3b7e1edf6b9fb837317f13c",
+  "original_csv_sha256": "a1b62f7bcb6524f53fb93cef4efc48744e96ed7a3bc33c71318473f0913bf567",
+  "paper_sha256": "36c4a11f3747823357ba152ae5f65f09234eadab54796ff0d8e9a2c6a7f2dffd",
+  "numeric_csv_sha256": "5a277686dedf82388a426d5aa2fefc9a68b31cb4b4e9d2a974ee81e8f619ad2e",
+  "original_statistic_file_hashes": {
+    "bootstrap_correlations.csv": "e56e389f9426d25ce5ba1d063021bcd531063fc7e6b4028ab1aa8e4d0484d0ca",
+    "correlation_results.csv": "25b3fc32a147384fdd5430d74cabfe11789203e5a300c655259cc1b6b5232158",
+    "descriptive_statistics.csv": "f2ca65b2589b2adb1c34672a68da04b5533360f29de2985ae89cf3d3bd2e6aed",
+    "sensitivity_results.csv": "17483e7ced01fb90388101a2d897803519e0658dcb9564bcd0f7b35a7c023b49",
+    "sensitivity_selection.csv": "eb35dc506aef6fd9918266602a49142b8e9e9b33475024a0d1fbf78db32c0aaa"
+  },
+  "validation": {
+    "rows": 20431,
+    "go_zero": 1056,
+    "gene_missing": 1277,
+    "gene_multiple": 99,
+    "gene_selected": 19031,
+    "numeric_nonnegative_integer": true,
+    "go_category_sums_match": true,
+    "descriptive_statistics_recomputed": true,
+    "paper_reported_values_match": true
+  },
+  "analyses": [
+    {
+      "outcome": "go_total_count",
+      "analysis": "primary_and_exploratory",
+      "n": 20431,
+      "recomputed_rho": 0.2704579700684935,
+      "ci_from_saved_2000_replicates": [
+        0.25697507515798346,
+        0.2839721189026921
+      ]
+    },
+    {
+      "outcome": "go_bp_count",
+      "analysis": "primary_and_exploratory",
+      "n": 20431,
+      "recomputed_rho": 0.2279689389474565,
+      "ci_from_saved_2000_replicates": [
+        0.21506468922081498,
+        0.24158036620067194
+      ]
+    },
+    {
+      "outcome": "go_mf_count",
+      "analysis": "primary_and_exploratory",
+      "n": 20431,
+      "recomputed_rho": 0.2591507099724065,
+      "ci_from_saved_2000_replicates": [
+        0.24551033732930816,
+        0.27200144729756226
+      ]
+    },
+    {
+      "outcome": "go_cc_count",
+      "analysis": "primary_and_exploratory",
+      "n": 20431,
+      "recomputed_rho": 0.24642032113581544,
+      "ci_from_saved_2000_replicates": [
+        0.23298048056717038,
+        0.25960434767601487
+      ]
+    },
+    {
+      "outcome": "go_total_count",
+      "analysis": "sensitivity_nozero_go",
+      "n": 19375,
+      "recomputed_rho": 0.23311079545325064,
+      "ci_from_saved_2000_replicates": [
+        0.21990314031196737,
+        0.24730076753627775
+      ]
+    },
+    {
+      "outcome": "go_total_count",
+      "analysis": "sensitivity_one_accession_per_single_gene",
+      "n": 19031,
+      "recomputed_rho": 0.20132928681391216,
+      "ci_from_saved_2000_replicates": [
+        0.1878711602252244,
+        0.21545015132647147
+      ]
+    }
+  ],
+  "limits": "rho and descriptive statistics independently recomputed with Python standard library. CIs recomputed from verified saved bootstrap replicates, not a new bootstrap run. p-value strings retained from verified original analysis; p-values not independently recomputed. Input grouping and ECDF are new descriptive calculations, not results reported in the paper."
+}
