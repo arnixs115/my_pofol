@@ -70,3 +70,5 @@ python tools/audit.py
 앱의 README·SUBMISSION·evidence를 참고하세요. 동료 피드백과 사용자 판단의 마지막 문장은 실제 응답을 받아야 하며 창작하지 않았습니다. `node --test public/protein-go/tests/core.test.cjs`로 앱 계산을 확인합니다.
 
 GitHub Pages는 `.github/workflows/pages.yml` 하나로 배포합니다. 중복 배포를 방지하기 위해 나중에 추가된 `nextjs.yml` 예시 워크플로를 통합했습니다.
+
+BR-B는 별도 공개 저장소 `arnixs115/protein_go_explorer`에서도 GitHub Actions로 배포합니다. 대표작 실행 링크는 https://arnixs115.github.io/protein_go_explorer/ 를 사용합니다. 기존 public/protein-go 정적 파일은 로컬 보관본입니다.
