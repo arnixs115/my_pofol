@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://arnixs115.github.io/protein_go_explorer/",
+    "status": 200,
+    "finalUrl": "https://arnixs115.github.io/protein_go_explorer/"
+  },
+  {
+    "url": "https://arnixs115.github.io/protein_go_explorer/protein-go-explorer.zip",
+    "status": 200,
+    "finalUrl": "https://arnixs115.github.io/protein_go_explorer/protein-go-explorer.zip"
+  },
+  {
+    "url": "https://github.com/arnixs115/boostcamp8-review-sentiment-classification",
+    "status": 200,
+    "finalUrl": "https://github.com/arnixs115/boostcamp8-review-sentiment-classification"
+  },
+  {
+    "url": "https://github.com/arnixs115/my_portpolio/blob/b57f2ece393bf7592d7001ea7364ed20975e8699/src/data/portfolioData.js",
+    "status": 200,
+    "finalUrl": "https://github.com/arnixs115/my_portpolio/blob/b57f2ece393bf7592d7001ea7364ed20975e8699/src/data/portfolioData.js"
+  },
+  {
+    "url": "https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09",
+    "status": 200,
+    "finalUrl": "https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09"
+  },
+  {
+    "url": "https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09/blob/main/asset/NLP-09_%EC%9B%90%EC%9E%90%EC%9E%AC_%ED%88%AC%EC%9E%90%EA%B2%B0%EC%A0%95_%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8.pdf",
+    "status": 200,
+    "finalUrl": "https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09/blob/main/asset/NLP-09_%EC%9B%90%EC%9E%90%EC%9E%AC_%ED%88%AC%EC%9E%90%EA%B2%B0%EC%A0%95_%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8.pdf"
+  },
+  {
+    "url": "https://github.com/boostcampaitech8/pro-nlp-generationfornlp-nlp-09",
+    "status": 200,
+    "finalUrl": "https://github.com/boostcampaitech8/pro-nlp-generationfornlp-nlp-09"
+  }
+]

@@ -1,0 +1,36 @@
+# Portfolio handoff rules
+
+## Scope and safety
+
+- Base repository: `arnixs115/my_pofol`. Work on a `feature/*` branch; never overwrite or force-push `main`.
+- Do not deploy, merge, run the Pages workflow manually, or change its trigger without explicit owner approval. A push to main deploys automatically.
+- Preserve BR-A story/growth statistics, updater, Protein GO Explorer, public documents, static export and `NEXT_PUBLIC_BASE_PATH` support.
+- Before editing on another PC: fetch, inspect branch/status, and pull with `--ff-only`. Do not reset or discard another PC's work.
+- Read `docs/PROGRESS.md` and `docs/CONTENT_SOURCES.md` before continuing. Update progress with changes, exact validation results and remaining questions at each handoff.
+
+## Content
+
+- Project data lives in `data/projects.ts`; cards, skills, experience and static detail routes consume it.
+- Every claim needs a public source. Distinguish personal work, team features, team results, attempted methods and unverified information.
+- Never invent roles, dates, scores, links or proficiency percentages. Preserve the documented source conflicts until the owner provides evidence.
+- Do not publish raw rituals, teammate details, private reports, secrets, phone numbers or home addresses. The existing public contact email is the only approved email.
+- Do not add databases, analytics, AI APIs or runtime secrets to this static portfolio.
+
+## Commands
+
+Node.js 22+, npm and Python 3.10+ (`python` or your local Python executable):
+
+```sh
+npm ci
+npm run build
+npm run typecheck
+node --test public/protein-go/tests/core.test.cjs
+python updater/verify.py
+python -m pip install -r tools/requirements.txt
+python tools/audit.py
+python tools/check_export.py
+```
+
+Repeat build/export checks with `NEXT_PUBLIC_BASE_PATH=/my_pofol`. PowerShell: `$env:NEXT_PUBLIC_BASE_PATH='/my_pofol'`; remove with `Remove-Item Env:NEXT_PUBLIC_BASE_PATH` for root builds. Do not commit `out/`, `.next/`, dependencies or local input.
+
+Browser review should include home sections, project list, every detail, keyboard navigation, phone width, documents and Explorer. Record limitations honestly. External links require a separate online reachability check; the export checker validates local references and fragments only.

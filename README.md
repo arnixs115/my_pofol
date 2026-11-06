@@ -17,7 +17,10 @@ python -m http.server 3000 --directory out
 
 ## 구성
 
-- `app/`: 이야기, 성장 통계, 연구, 13번 앱 예정 영역, 지원 문서와 연락처
+- `app/`: 이야기, 성장 통계, 연구, Projects 목록·정적 상세 페이지, Skills, Experience, 지원 문서와 연락처
+- `data/projects.ts`: 프로젝트 6개, 개인 역할·팀 성과·한계·공개 근거, 기술 적용 경험과 강점
+- `docs/CONTENT_SOURCES.md`: 출처 스냅샷과 미확인·충돌 정보
+- `AGENTS.md`, `docs/PROGRESS.md`: 여러 PC에서 이어 작업하기 위한 규칙과 진행 기록
 - `data/public-content.json`: 공개용 편집 문장. 소설 원문을 사용하지 않습니다.
 - `data/growth-stats.json`: 실제 입력에서 계산한 익명 집계
 - `public/documents/`: 공개 논문 PDF, 지원 문서 PDF·Markdown, 갱신 장치 ZIP

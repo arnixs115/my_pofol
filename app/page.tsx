@@ -1,6 +1,7 @@
 import stats from '../data/growth-stats.json';
 import content from '../data/public-content.json';
 import { publicAsset } from '../lib/paths';
+import Portfolio from './components/Portfolio';
 
 const docs = [['resume','이력서','배움의 방향과 경험을 한눈에'],['self-introduction','자기소개서','경험이 일하는 태도가 되기까지'],['experience','프로젝트 경험기술서','연구와 학습 프로젝트의 근거']] as const;
 
@@ -10,14 +11,14 @@ export default function Home() {
     <a className="skip" href="#main">본문으로 건너뛰기</a>
     <header className="shell flex items-center justify-between gap-6 py-6">
       <a href="#" className="brand" aria-label="허승환 홈">H<span>.</span> <small>HEO SEUNGHWAN</small></a>
-      <nav aria-label="주요 메뉴" className="flex flex-wrap gap-x-6 gap-y-2"><a href="#story">Story</a><a href="#growth">Growth</a><a href="#work">Work</a><a href="#contact">Resume ↗</a></nav>
+      <nav aria-label="주요 메뉴" className="flex flex-wrap gap-x-6 gap-y-2"><a href="#story">Story</a><a href="#growth">Growth</a><a href="#work">Research</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Resume ↗</a></nav>
     </header>
-    <main id="main">
+    <main id="main" tabIndex={-1}>
       <section className="hero shell grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
         <div><p className="eyebrow">BR-A / PERSONAL PORTFOLIO</p><p className="role">AI · NLP · BIOINFORMATICS</p>
           <h1>기록에서<br/>다음 <em>질문</em>으로.</h1>
           <p className="intro">생명정보학에서 AI와 서비스 개발로.<br/>배운 것을 연결하며 성장하는 <strong>허승환</strong>입니다.</p>
-          <div className="flex flex-wrap gap-3 mt-8"><a className="button primary" href="#work">연구와 프로젝트 보기 <span>↗</span></a><a className="button" href="#story">나의 이야기 ↓</a></div>
+          <div className="flex flex-wrap gap-3 mt-8"><a className="button primary" href="#projects">프로젝트와 근거 보기 <span>↗</span></a><a className="button" href="#story">나의 이야기 ↓</a></div>
         </div>
         <div className="map" role="img" aria-label="생명정보학, AI와 NLP, 서비스 개발을 연결하는 배움의 지도">
           <div className="map-top">A MAP OF LEARNING <span>01 — ONGOING</span></div>
@@ -41,7 +42,8 @@ export default function Home() {
         <article className="updater-project grid md:grid-cols-[1fr_1.2fr] gap-8"><div><span className="tag">PYTHON · REPRODUCIBILITY</span><h3>반복할 수 있는 갱신 장치</h3></div><div><p>비공개 기록은 로컬에서 읽고, 집계 수치만 사이트로 전달합니다. 같은 입력에서 같은 결과를 만드는 Python 파이프라인과 검증용 예제를 함께 제공합니다.</p><a className="text-link" href={publicAsset("/documents/ritual-updater.zip")} download>갱신 장치와 재현 예제 ZIP ↓</a></div></article>
         <article className="updater-project grid md:grid-cols-[1fr_1.2fr] gap-8" id="protein-go-project"><div><span className="tag">FEATURED APP · BR-B · RESEARCH TO TOOL</span><h3>Protein GO Explorer</h3><p className="note">논문을 직접 탐색하는 정적 웹앱</p></div><div><p>단백질 기능 분석을 배우는 연구자와 학습자가 길이와 GO 주석의 관계를 탐색할 때, 논문의 약한 양의 상관관계와 원자료의 분포를 이용해 입력 길이의 위치와 구간별 주석 통계를 보여 줍니다.</p><div className="flex flex-wrap gap-6"><a className="text-link" href="https://arnixs115.github.io/protein_go_explorer/">Protein GO Explorer 실행 ↗</a><a className="text-link" href="https://arnixs115.github.io/protein_go_explorer/protein-go-explorer.zip" download>설치 없이 실행하는 ZIP ↓</a></div><p className="note mt-4">검증된 인간 단백질 20,431개 · 길이 입력·GO 통계·연구 해석 · 로그인·API 키 없음. 개별 기능 예측이 아닌 연구 통계 탐색 도구입니다.</p></div></article>
       </section>
-      <section id="contact" className="contact"><div className="shell section"><div className="section-heading"><div><p className="eyebrow">04 / RESUME & CONTACT</p><h2>다음 질문을<br/>함께 풀고 싶습니다.</h2></div><a className="email" href="mailto:jbheo2003@gmail.com">jbheo2003@gmail.com ↗</a></div><div className="grid md:grid-cols-3 gap-5 mt-12">{docs.map(([id,title,sub])=><article className="doc" key={id}><h3>{title}</h3><p>{sub}</p><div className="flex gap-5"><a href={publicAsset(`/documents/${id}.pdf`)} target="_blank" rel="noreferrer">PDF 열기 ↗</a><a href={publicAsset(`/documents/${id}.md`)} download>원문 다운로드 ↓</a></div></article>)}</div><p className="note mt-6">지원 문서는 확인 가능한 경험을 정리한 초안입니다. 학력 상세·재직 경력·담당 범위·성과 수치는 본인 확인 후 보완할 수 있습니다.</p></div></section>
+      <Portfolio />
+      <section id="contact" className="contact"><div className="shell section"><div className="section-heading"><div><p className="eyebrow">07 / RESUME & CONTACT</p><h2>다음 질문을<br/>함께 풀고 싶습니다.</h2></div><a className="email" href="mailto:jbheo2003@gmail.com">jbheo2003@gmail.com ↗</a></div><div className="grid md:grid-cols-3 gap-5 mt-12">{docs.map(([id,title,sub])=><article className="doc" key={id}><h3>{title}</h3><p>{sub}</p><div className="flex gap-5"><a href={publicAsset(`/documents/${id}.pdf`)} target="_blank" rel="noreferrer">PDF 열기 ↗</a><a href={publicAsset(`/documents/${id}.md`)} download>원문 다운로드 ↓</a></div></article>)}</div><p className="note mt-6">지원 문서는 확인 가능한 경험을 정리한 초안입니다. 학력 상세·재직 경력·담당 범위·성과 수치는 본인 확인 후 보완할 수 있습니다.</p></div></section>
     </main><footer className="shell flex flex-wrap justify-between gap-4 py-8"><span>© 2026 허승환 · BR-A</span><span>기록에서 다음 질문으로. <a href="#">맨 위로 ↑</a></span></footer>
   </>;
 }

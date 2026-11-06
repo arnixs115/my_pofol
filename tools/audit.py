@@ -10,10 +10,11 @@ PATTERNS=[r'(?i)gh[pousr]_[A-Za-z0-9]{20,}',r'(?i)sk-[A-Za-z0-9_-]{20,}',r'AKIA[
 def run(deny=()):
     failures=[]; checked=0
     selected=[]
-    for folder in ['app','data','public','updater','tools','out']:
+    for folder in ['app','data','lib','docs','public','updater','tools','out']:
         base=ROOT/folder
         if base.exists():
             selected.extend(p for p in base.rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+    selected.extend(ROOT/name for name in ['AGENTS.md','README.md'] if (ROOT/name).is_file())
     for p in selected:
         rel=p.relative_to(ROOT).as_posix()
         if re.search(r'ritual-history-|아직_도착하지_않은_사람의_지도|(?:^|/)\.env',rel):

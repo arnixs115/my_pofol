@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './portfolio.css';
 import { publicAsset } from '../lib/paths';
 export const metadata: Metadata = {
   title: '허승환 | BR-A — 기록에서 다음 질문으로',
