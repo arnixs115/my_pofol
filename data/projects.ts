@@ -1,8 +1,9 @@
 export type Evidence = { label: string; href: string };
+export type ExperimentTable = { caption: string; columns: string[]; rows: string[][]; note: string };
 export type Project = {
   slug: string; category: string; title: string; summary: string; period: string;
   role: string; technologies: string[]; problem: string; actions: string[];
-  result: string; learning: string; limits: string; evidence: Evidence[];
+  result: string; learning: string; limits: string; evidence: Evidence[]; experiments?: ExperimentTable[];
 };
 
 const source = 'https://github.com/arnixs115/my_portpolio/blob/b57f2ece393bf7592d7001ea7364ed20975e8699/src/data/portfolioData.js';
@@ -13,10 +14,10 @@ export const projects: Project[] = [
     period: '기간 미확인', role: '개인 리더보드 프로젝트. 데이터 분석, 모델 선택·학습 및 비교 실험. 실험 결과 공유 경험은 원본 README에 기재되어 있습니다.',
     technologies: ['Python', 'PyTorch', 'Transformers', 'TAPT', 'Ensemble'],
     problem: '강한 긍정·약한 긍정·약한 부정·강한 부정을 구분해야 했습니다. 클래스 불균형, 감성 경계의 모호함과 허용 사전학습 모델의 제약이 있었습니다.',
-    actions: ['불용어 확장과 Focal Loss를 비교했지만, Loss 변경의 개선 효과는 미미했습니다.', '허용 모델을 비교하고 가중 앙상블을 적용했습니다. TAPT는 외부 코드를 활용해 적용했습니다.', 'K-Fold를 시도했지만 학습 시간과 서버 자원 제약으로 전체 실험을 완료하지 못했습니다.'],
+    actions: ['클래스가 적은 감성에는 Augmented 데이터를 유지하고, 많은 감성에는 Original 데이터를 사용하는 조합을 실험해 개선을 확인했습니다.', 'Focal Loss 기반 Custom Trainer를 구현했지만 Validation Loss가 불안정해져 개선에 실패했습니다. 불용어 추가의 효과도 제한적이었습니다.', '5개 모델의 Soft Voting과 가중치를 비교했습니다. 성능 순으로 [0.22, 0.21, 0.20, 0.19, 0.18]을 적용했을 때 미세한 개선을 보고했습니다.', '3-fold 앙상블을 시도했으나 비슷한 Loss·Accuracy와 저장 공간 부족으로 중단했습니다. 공유된 TAPT 코드를 적용한 모델을 다시 학습·앙상블해 최종 제출했습니다.'],
     result: 'Public 24위 · Private 12위. 원본 저장소와 기존 포트폴리오에 공통으로 기재된 순위입니다. 리더보드 원본을 통한 독립 검증은 하지 못했습니다.',
-    learning: '손실 함수 변경만으로 문제를 해결하기보다 모델 간 보완성과 실험 자원을 함께 고려해야 했습니다.',
-    limits: '참가 인원은 두 출처가 204명과 219명으로 달라 총원·상위 비율은 표시하지 않습니다. TAPT 내부 구조 이해에 한계가 있었다는 원본 회고를 보존했습니다.',
+    learning: '데이터 조합과 앙상블을 함께 비교하고 실험 결과를 동료에게 공유했습니다. 긴 학습 시간과 저장 용량을 고려한 실험 관리·자동화의 필요성을 배웠습니다.',
+    limits: '참가 인원은 두 출처가 204명과 219명으로 달라 총원·상위 비율은 표시하지 않습니다. 제공된 wrap-up report에는 실험별 정확한 개선 폭이 없어 수치로 만들지 않았습니다. TAPT 내부 구조 이해에 한계가 있었다는 회고도 보존했습니다.',
     evidence: [{label: '프로젝트 README · 코드', href: 'https://github.com/arnixs115/boostcamp8-review-sentiment-classification'}, {label: '기존 포트폴리오 기록', href: source}],
   },
   {
@@ -26,36 +27,39 @@ export const projects: Project[] = [
     role: '기사 데이터 기반 모델링(FinBERT) 및 앙상블 구조 설계. 팀 README의 허승환 담당 항목 기준입니다.',
     technologies: ['FinBERT', 'Attention', 'Ensemble', 'XGBoost', 'LightGBM'],
     problem: '뉴스와 시계열 데이터를 종합해 원자재 가격 변동의 방향과 설명을 제공해야 했습니다.',
-    actions: ['뉴스를 감성 정보와 임베딩으로 표현하고 가격 데이터와 결합해 비교했습니다.', 'XGBoost·LightGBM, PCA·Multi-Head Attention, Entity·Triple 표현을 비교한 경험을 기존 포트폴리오에 정리했습니다.', '팀 프로젝트에서는 FinBERT 감성 분석, threshold 적용과 상승·하락·유지 관점의 앙상블 구조를 구성했습니다.'],
-    result: '뉴스 표현과 모델 구성에 따른 예측 결과를 비교·분석했습니다. 팀은 뉴스·시계열 분석을 보고서로 제공하는 어시스턴트를 구현했습니다.',
-    learning: '문제에 맞는 데이터 표현을 선택하고, 모델의 방향성 쏠림을 다루는 과정을 경험했습니다.',
-    limits: '확인된 개인 담당 범위와 팀 전체 기능을 구분합니다. 검증된 수익률·백테스트 지표는 없어 기재하지 않습니다.',
-    evidence: [{label: '팀 저장소 · 역할 및 구조', href: 'https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09'}, {label: 'Wrap-up Report', href: 'https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09/blob/main/asset/NLP-09_%EC%9B%90%EC%9E%90%EC%9E%AC_%ED%88%AC%EC%9E%90%EA%B2%B0%EC%A0%95_%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8.pdf'}, {label: '개인 실험 기록', href: source}],
+    actions: ['기사 제목·설명 임베딩과 FinBERT 감성을 뉴스 모델의 입력으로 활용했습니다. XGBoost·LightGBM과 threshold 조정에서 예측이 한쪽으로 쏠리는 문제를 확인했습니다.', 'Attention을 적용한 뒤에도 쏠림이 남아, Positive·Negative·Tri-label 모델의 예측 일치도와 신뢰도를 결합하는 앙상블을 설계했습니다.', '의견 일치·충돌에 따라 신뢰도를 감쇄하고 최종 상승·하락·유지 방향을 정했습니다. 근거 뉴스 추출을 담당했으나, LLM을 활용한 추가 정교화는 완료하지 못했습니다.'],
+    result: '뉴스 모델 보고값: Positive Accuracy 0.5916, Negative 0.5149, Tri-label과 Ensemble은 각각 0.4109. 앙상블의 정확도 개선은 확인되지 않았습니다. 팀은 별도로 LLM 판단·신뢰도를 이용한 전체 파이프라인을 9개월 데이터와 거래 수수료 0.1% 조건으로 백테스트했습니다.',
+    learning: '모델을 결합하는 설계와 실제 정확도 개선은 구분해야 했습니다. 모델링에 시간을 집중하면서 시스템 연결에 참여할 시간이 줄었던 경험을 통해 팀의 통합 일정도 함께 고려할 필요성을 배웠습니다.',
+    limits: '이진 Positive·Negative와 3분류 Tri-label·Ensemble은 목표와 threshold가 달라 정확도를 직접 우열 비교할 수 없습니다. 백테스트는 팀 전체 파이프라인 결과이며 개인 뉴스 모델의 효과가 아닙니다. 보고서의 최대 손실 절감률 89.3%는 산식·정확한 비교 조건을 충분히 확인하지 못해 대표 성과로 사용하지 않았습니다.',
+    experiments: [{caption: '뉴스 모델 평가 · Wrap-up Report p.7', columns: ['모델', 'Accuracy', '목표 / 상승률 기준'], rows: [['Positive', '0.5916', '이진 · threshold −0.5%'], ['Negative', '0.5149', '이진 · threshold +0.5%'], ['Tri-label', '0.4109', '3분류 · ±0.5% 밖 상승/하락, 그 외 유지'], ['Ensemble', '0.4109', '3분류 · 세 모델의 예측·신뢰도 결합']], note: '서로 다른 목표의 모델을 같은 성능 순위로 해석하지 않습니다. 원본의 평가 데이터 분할과 상세 조건을 이번 작업에서 재현하지 않았습니다.'}],
+    evidence: [{label: '팀 저장소 · 역할 및 구조', href: 'https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09'}, {label: 'Wrap-up Report · pp.6–7, 9, 15', href: 'https://github.com/boostcampaitech8/pro-nlp-finalproject-nlp-09/blob/6df5322ae9eb38f7ecc128c815ac5f83e03f728a/asset/NLP-09_%EC%9B%90%EC%9E%90%EC%9E%AC_%ED%88%AC%EC%9E%90%EA%B2%B0%EC%A0%95_%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8.pdf'}, {label: '개인 실험 기록', href: source}],
   },
   {
     slug: 'exam-llm', category: 'LLM · LEARN & APPLY', title: '수능형 LLM 문제 풀이',
     summary: '데이터 구성과 학습·추론 방법을 바꾸며 한국어 시험 문제 풀이를 탐색.',
     period: '시작 2025.12.17 · 종료일은 원본 표기 오류로 미확인',
-    role: '팀 Notion 설계, EDA, 데이터 라벨링, DPO, CoT, 데이터 생성. 팀 README의 허승환 담당 항목 기준입니다.',
+    role: '팀 Notion 설계, EDA·라벨링 참여, 선지 수 통일·정답 위치 shuffle 전처리, DPO 학습과 CoT 적용 시도. 보고서 개인 회고와 팀 역할 표 기준입니다.',
     technologies: ['LLM', 'DPO', 'CoT', 'EDA', 'Data Labeling'],
     problem: '한국어 시험 문제를 풀기 위해 작은 언어모델의 학습 데이터와 추론 방법을 조정해야 했습니다.',
-    actions: ['EDA·라벨링·데이터 생성으로 문제와 학습 데이터를 살폈습니다.', 'DPO 구현과 CoT 적용을 직접 시도하고 방법별 결과를 비교했습니다.', '팀은 SFT·LoRA, 한국사 RAG와 앙상블을 결합했습니다. 이 전체 기능을 개인 구현으로 주장하지 않습니다.'],
-    result: '팀 README 보고값: Public 8위 / 16팀(Macro-F1 0.8129), Private 7위 / 16팀(Macro-F1 0.7403). 개인 실험만의 효과를 분리한 수치는 아닙니다.',
-    learning: '새로운 학습·추론 방법을 적용하며 데이터 구성과 방법별 특성을 비교하는 경험을 쌓았습니다.',
-    limits: '원본 종료일은 “20256.01.06”으로 표기되어 임의로 교정하지 않았습니다. DPO·CoT의 개별 성능 향상은 확인되지 않았습니다.',
-    evidence: [{label: '팀 저장소 · 역할 및 팀 성적', href: 'https://github.com/boostcampaitech8/pro-nlp-generationfornlp-nlp-09'}, {label: '실험·보고서 안내', href: 'https://github.com/boostcampaitech8/pro-nlp-generationfornlp-nlp-09#상세-실험-내용'}, {label: '개인 시도 기록', href: source}],
+    actions: ['4·5지선다 혼재와 5지선다의 1번 정답 편향 61.74%를 확인했습니다. 선지 수를 통일하고 정답 위치를 shuffle하는 전처리를 수행했습니다.', '팀이 분담한 총 2,031건의 학습 데이터 라벨링에 참여했습니다. 이 전체 수량을 개인 처리량으로 주장하지 않습니다.', 'DPO 학습에서 Loss 0 수렴을 관찰했습니다. 파라미터·중복 데이터·Loss 정의 등 가능성을 검토했으나 원인을 확정하지 못했습니다.', '생성 단계와 CoT 데이터 활용으로 방향을 바꾸고 프롬프트·코드를 일부 수정했지만, 서버 자원과 마감 제약으로 효과를 검증하지 못했습니다. SFT·LoRA, 한국사 RAG와 최종 앙상블은 팀 전체 작업입니다.'],
+    result: '보고서 전처리 비교: 기준 Macro-F1 0.7600, 오류 문항 제거 0.7711, 정답 분포 리밸런스 0.7734. 본인은 EDA·전처리에 기여했으며, 이 값은 팀의 실험 결과입니다. 최종 팀 성적은 Public 8위 / 16팀(0.8129), Private 7위 / 16팀(0.7403)입니다.',
+    learning: '기법을 빠르게 적용하기 전에 모델 구조와 학습 원리를 이해해야 했습니다. 생성형 AI로 작성한 코드도 동작 원리를 이해해야 문제에 대응할 수 있음을 배웠습니다.',
+    limits: 'DPO Loss 0의 원인은 미확정이고, CoT 추가 학습의 성능 향상은 검증하지 못했습니다. 보고서의 팀 회고에 적힌 원인 해석을 개인이 확정한 결론으로 옮기지 않았습니다. 종료일은 README 오기로 연도 미확인 상태를 유지했습니다.',
+    experiments: [{caption: '데이터 전처리 비교 · Wrap-up Report p.5', columns: ['실험', 'Macro-F1'], rows: [['기준', '0.7600'], ['오류 문항 제거', '0.7711'], ['정답 분포 리밸런스', '0.7734']], note: '팀 보고서의 비교 표입니다. 개별 전처리 효과를 합산하거나 최종 팀 점수와 같은 실험으로 해석하지 않습니다.'}],
+    evidence: [{label: '팀 저장소 · 역할 및 팀 성적', href: 'https://github.com/boostcampaitech8/pro-nlp-generationfornlp-nlp-09'}, {label: 'Wrap-up Report · pp.3–5, 15', href: 'https://github.com/boostcampaitech8/pro-nlp-generationfornlp-nlp-09/blob/480519405a934ba6220ad90e8ec2b9599187049e/asset/%E1%84%89%E1%85%AE%E1%84%82%E1%85%B3%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6%20%E1%84%91%E1%85%AE%E1%86%AF%E1%84%8B%E1%85%B5%20%E1%84%86%E1%85%A9%E1%84%83%E1%85%A6%E1%86%AF%20%E1%84%89%E1%85%A2%E1%86%BC%E1%84%89%E1%85%A5%E1%86%BC%20WRAP-UP%20REPORT.pdf'}, {label: '개인 시도 기록', href: source}],
   },
   {
     slug: 'odqa', category: 'NLP · RETRIEVAL / RAG', title: 'Open Domain Question Answering',
-    summary: 'Wikipedia에서 정보를 검색하고 답변하는 검색 기반 질의응답 학습 경험.',
-    period: '기간 미확인', role: '검색 기반 QA 프로젝트 경험. 구체적인 개인 담당 범위는 미확인입니다.',
-    technologies: ['Wikipedia Retrieval', 'RAG', 'FAISS'],
-    problem: '질문에 답하기 위해 필요한 정보를 외부 문서에서 찾아야 했습니다.',
-    actions: ['기존 포트폴리오에 Wikipedia 기반 Retrieval·RAG 접근과 FAISS를 활용한 검색 기반 QA 경험을 기록했습니다.'],
-    result: '문제에 맞는 검색 기반 접근을 적용한 학습 경험을 정리했습니다. 공개 평가 지표는 확인되지 않았습니다.',
-    learning: '모델 자체의 지식뿐 아니라 필요한 문서를 검색하는 접근을 경험했습니다.',
-    limits: '별도 프로젝트 저장소, 상세 역할, 기간과 성능은 확인되지 않았습니다.',
-    evidence: [{label: '기존 포트폴리오의 ODQA·기술 기록', href: source}],
+    summary: 'Context·Answer 길이를 분석하고 Reader 4종의 Start/End Logit 앙상블을 구성한 ODQA 프로젝트.',
+    period: '2025.12.01 — 2025.12.11 · 팀 README 기준', role: 'EDA와 앙상블 담당. Retriever·Reader 2단계 시스템에서 데이터 길이 분포 분석과 Reader 모델 결합에 참여했습니다.',
+    technologies: ['EDA', 'RoBERTa', 'Reader Ensemble', 'Start/End Logits'],
+    problem: 'Wikipedia에서 관련 문서를 찾은 뒤 답변 구간을 추출해야 했습니다. 문맥 길이에 따른 입력 손실과 서로 다른 토크나이저의 Logit shape 불일치가 과제였습니다.',
+    actions: ['Context·Answer 길이 분포를 분석했습니다. 팀은 Reader max_length를 256·384·512로 비교해 512를 선택하고, 답변 최대 길이는 50으로 설정했습니다.', 'RoBERTa·KoELECTRA·KoBigBird를 함께 결합하려 했으나 토크나이저가 달라 Logit shape이 일치하지 않았습니다. RoBERTa 계열 4개 모델로 결합 범위를 조정했습니다.', '모델별 Start/End Logit을 결합하는 Soft Voting과 가중치를 비교했습니다. 1:1:1:1이 비교한 세 조합 중 Public F1이 가장 높았습니다.'],
+    result: '팀 최종 성적 Public 4위 / 16팀(EM 75.00, F1 83.62), Private 7위 / 16팀(EM 68.61, F1 79.87). 보고서의 Curriculum Learning 결과 Public F1 78.66과 최종 앙상블 83.62의 차이는 4.96점이며, 프로젝트 최초 Baseline 대비 개선으로 표시하지 않습니다.',
+    learning: '모델 결합에는 토크나이저·출력 형태의 호환성이 필요했습니다. 개인 회고에서 역할 중복과 코드 사용법 공유의 어려움을 돌아보고, 다음 프로젝트에서는 구현 설명과 Notion 기반 정리를 강화하고자 했습니다.',
+    limits: 'Eval과 Public·Private 점수는 서로 다른 평가입니다. 앙상블은 마지막 날 구현해 다양한 모델 조합과 가중치를 충분히 탐색하지 못했습니다. Retriever·Reranker 전체를 개인 구현으로 주장하지 않습니다. 순위는 보고서 결과 표·캡처와 공개 README를 대조했으며, 회고 본문의 “3위” 표기와는 차이가 있습니다.',
+    experiments: [{caption: 'Reader 입력 길이 실험 · Wrap-up Report p.2', columns: ['max_length', 'Eval EM', 'Eval F1'], rows: [['256', '51.67', '59.97'], ['384 · 기준', '55.83', '65.19'], ['512', '55.72', '67.11']], note: '팀 실험 결과입니다. 384→512에서 F1은 높아졌지만 EM 개선으로 주장하지 않습니다.'}, {caption: 'Reader 4종 가중치 비교 · Wrap-up Report p.7', columns: ['가중치', 'Public F1', 'Private F1'], rows: [['1:1:1:1', '83.62', '79.87'], ['2:3:3:3', '83.31', '79.65'], ['1:3:3:3', '83.52', '79.87']], note: '보고서의 Start/End Logit 결합 결과입니다. Logit을 정규화된 확률값과 동일하게 설명하지 않습니다.'}],
+    evidence: [{label: '팀 저장소 · 역할·기간·팀 성적', href: 'https://github.com/boostcampaitech8/pro-nlp-mrc-nlp-09'}, {label: 'Wrap-up Report · pp.1–2, 7, 10', href: 'https://github.com/boostcampaitech8/pro-nlp-mrc-nlp-09/blob/133875f311c8106680964448e0eb494843e83d7e/docs/MRC_NLP-09.pdf'}],
   },
   {
     slug: 'protein-go', category: 'BIO AI · BIOINFORMATICS', title: 'Protein GO Research & Explorer',
@@ -87,13 +91,14 @@ export const projects: Project[] = [
 export const strengths = [
   {title: 'Experiment', text: '가설을 세우고 모델·학습 전략을 비교합니다. 개선이 미미했던 시도와 자원 제약도 기록합니다.', slug: 'movie-review'},
   {title: 'Problem Solving', text: '뉴스와 가격처럼 서로 다른 데이터를 연결하고, 문제에 맞는 표현과 모델 구성을 찾습니다.', slug: 'commodity-assistant'},
-  {title: 'Learn & Apply', text: '새로운 방법을 직접 시도하고 결과와 한계를 정리합니다. DPO·CoT 실험이 그 사례입니다.', slug: 'exam-llm'},
+  {title: 'Learn & Apply', text: '정답 분포를 분석해 전처리하고, 새로운 학습 방법의 실패와 미검증 범위도 구분해 기록합니다.', slug: 'exam-llm'},
 ];
 
 export const skills = [
   {title: 'NLP 모델 실험', tools: 'Python · PyTorch · Hugging Face Transformers · TAPT · Ensemble', usage: '감성분석 모델 비교와 학습 전략 실험', slug: 'movie-review'},
   {title: '뉴스 · 가격 모델링', tools: 'FinBERT · Attention · XGBoost · LightGBM', usage: '뉴스 표현 비교와 앙상블 구조 설계', slug: 'commodity-assistant'},
-  {title: 'LLM · 검색', tools: 'DPO · CoT · FAISS · RAG', usage: '학습·추론 방법 적용 시도와 검색 기반 QA 경험', slug: 'exam-llm'},
+  {title: 'LLM 데이터 · 학습 시도', tools: 'EDA · Labeling · Answer Shuffle · DPO · CoT', usage: '정답 분포 전처리, DPO 학습 시도와 CoT 미검증 범위', slug: 'exam-llm'},
+  {title: '검색 기반 QA · Reader', tools: 'RoBERTa · Start/End Logits · Soft Voting', usage: 'Context·Answer 길이 분석과 Reader 4종 앙상블. Retrieval·Reranking은 팀 시스템 맥락', slug: 'odqa'},
   {title: '연구를 웹으로', tools: 'Next.js · TypeScript · Tailwind CSS · Python · Static Export', usage: '현재 사이트·리추얼 집계기·연구 탐색 도구. AI 도구를 활용한 구현', slug: 'protein-go'},
 ];
 
