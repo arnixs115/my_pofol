@@ -40,6 +40,7 @@ jobs:
       - name: Inspect public artifacts
         run: |
           python -m pip install -r tools/requirements.txt
+          python tools/check_documents.py
           python tools/audit.py
           python tools/check_export.py
       - name: Upload only the static export
