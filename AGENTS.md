@@ -3,6 +3,7 @@
 ## Scope and safety
 
 - Base repository: `arnixs115/my_pofol`. Work on a `feature/*` branch; never overwrite or force-push `main`.
+- After the approved integration, use the latest `origin/main` as the baseline for subsequent content work. The owner explicitly approved merging `feature/integrate-ai-portfolio` and its automatic Pages deployment on 2026-11-09; this is not blanket approval for future deployments.
 - Do not deploy, merge, run the Pages workflow manually, or change its trigger without explicit owner approval. A push to main deploys automatically.
 - Preserve BR-A story/growth statistics, updater, Protein GO Explorer, public documents, static export and `NEXT_PUBLIC_BASE_PATH` support.
 - Before editing on another PC: fetch, inspect branch/status, and pull with `--ff-only`. Do not reset or discard another PC's work.

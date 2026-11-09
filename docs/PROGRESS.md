@@ -1,6 +1,6 @@
 # 포트폴리오 통합 인수인계
 
-최종 작업일: 2026-11-06 (KST)
+최종 작업일: 2026-11-09 (KST)
 
 ## 현재 상태
 
@@ -8,7 +8,8 @@
 - 작업 브랜치: `feature/integrate-ai-portfolio`
 - 기준 main: `22f98996dd30ca6c622c12f72d46b5d8c9d72214`
 - 통합 원본: `arnixs115/my_portpolio`의 `b57f2ece393bf7592d7001ea7364ed20975e8699`
-- 구현·검증 완료. main 병합, Pages 배포, 워크플로 수동 실행은 하지 않았습니다.
+- 구현·검증 완료. 2026-11-09 사용자가 feature→main 병합과 그에 따른 자동 배포를 승인했습니다. 아래는 병합 전 인수인계이며 실제 병합·배포 결과는 GitHub PR과 Actions 기록으로 확인합니다.
+- 통합 후 콘텐츠 수정의 기준은 최신 `origin/main`입니다. 후속 변경은 main에서 분기하고, 승인된 변경만 다시 병합합니다.
 
 ## 구현
 
@@ -71,11 +72,12 @@
 git clone https://github.com/arnixs115/my_pofol.git
 cd my_pofol
 git fetch origin
-git switch --track origin/feature/integrate-ai-portfolio
+git switch main
+git pull --ff-only origin main
 npm ci
 npm run dev
 ```
 
-이미 같은 브랜치가 있으면 `git status`로 변경사항을 먼저 확인하고 `git pull --ff-only`를 실행합니다. 다른 PC의 미커밋 작업은 자동으로 동기화되지 않습니다. 충돌을 reset/force-push로 덮어쓰지 마세요.
+이 명령은 승인된 통합이 main에 병합된 뒤 사용합니다. 수정 전에는 `git status`로 변경사항을 확인하고 최신 main에서 새 작업 브랜치를 만듭니다. 다른 PC의 미커밋 작업은 자동으로 동기화되지 않습니다. 충돌을 reset/force-push로 덮어쓰지 마세요.
 
-검증 명령은 `AGENTS.md` 참고. 배포 전에는 소유자의 main 병합·배포 승인이 필요합니다. 현재 Pages 워크플로는 main push 때 배포하므로, 승인 없이 main에 push하지 않습니다.
+검증 명령은 `AGENTS.md` 참고. 이번 통합은 2026-11-09 승인받았으며, 이후 별도 변경의 병합·배포에는 소유자의 승인이 필요합니다. 현재 Pages 워크플로는 main push 때 자동 배포합니다. 다음 콘텐츠 보완 우선순위는 다운로드 문서 동기화, 대표 프로젝트의 개인 코드·기술적 판단 근거 보완, 홈 요약 정리입니다.
