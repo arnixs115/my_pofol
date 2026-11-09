@@ -43,7 +43,7 @@ AI / NLP / Bioinformatics
 개인 리더보드 프로젝트 | 데이터 분석·모델 학습·비교 실험 | 팀 학습·참여자 간 실험 공유
 
 - 모델 개발·제출은 개인으로 수행하고 팀으로 함께 공부하며 리더보드 참여자들과 실험 과정·결과를 자주 공유했습니다. 4개 감성 클래스의 데이터 조합, Focal Loss, 가중 앙상블을 비교하고 공유된 TAPT 코드를 활용했습니다.
-- **결과:** Public 24위, Private 12위. 참가 인원은 출처 간 차이가 있어 기재하지 않았습니다. TAPT 내부 구조 이해와 저장 공간·시간 제약의 한계를 회고에 기록했습니다.
+- **결과:** 219명 중 Public 24위·Private 12위. Accuracy는 기준 0.8074 / 0.8048에서 최종 0.8395 / 0.8391(Public / Private)로 높아졌습니다. TAPT 이해와 저장 공간·시간 제약도 경험했습니다.
 - [프로젝트와 근거](https://arnixs115.github.io/my_pofol/projects/movie-review/) · [코드](https://github.com/arnixs115/boostcamp8-review-sentiment-classification)
 
 ### 원자재 투자 결정 어시스턴트
