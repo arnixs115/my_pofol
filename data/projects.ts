@@ -1,3 +1,5 @@
+import additionalProjects from './additional-projects.json';
+
 export type Evidence = { label: string; href: string };
 export type ExperimentTable = { caption: string; columns: string[]; rows: string[][]; note: string };
 export type Project = {
@@ -8,6 +10,7 @@ export type Project = {
 
 const source = 'https://github.com/arnixs115/my_portpolio/blob/b57f2ece393bf7592d7001ea7364ed20975e8699/src/data/portfolioData.js';
 export const projects: Project[] = [
+  ...additionalProjects,
   {
     slug: 'movie-review', category: 'NLP · TEXT CLASSIFICATION', title: '영화 리뷰 감성 분석',
     summary: '모호한 감성의 경계를 다루며, 모델과 학습 전략을 비교한 4-class 분류 실험.',
@@ -77,15 +80,15 @@ export const projects: Project[] = [
   },
   {
     slug: 'security-learning', category: 'SECURITY · NETWORK · LEARNING', title: '보안 · 네트워크 · 웹앱 학습',
-    summary: '보안·웹앱 학습과 GNS 기반 라우터 연결 실습을 통해 배운 내용을 정리하는 과정.',
+    summary: 'AI 보조 개인 제작, 보안·웹앱 학습과 GNS 라우터 연결 실습으로 확장한 과정.',
     period: '2026.08부터의 학습 기록', role: 'SKT-ALEPH 보안·웹앱 학습과 라우터 연결 실습을 수행했습니다. GNS 프로젝트 파일을 보유하고 있으며, 실습을 설명하는 글·사진은 아직 정리하지 않았습니다.',
     technologies: ['Security Learning', 'GNS', 'Router Connectivity', 'Documentation'],
     problem: '새로운 보안 분야를 이해하고 학습을 지속할 방법이 필요했습니다.',
     actions: ['이해한 내용을 문서로 정리하고 모르는 부분은 질문으로 보완했습니다.', '라우터를 연결하는 실습을 수행하고 GNS 프로젝트 파일을 보유하고 있습니다. 구성 과정과 동작을 설명하는 글·사진은 추후 보완할 계획입니다.', '공개 포트폴리오에는 원본 리추얼 대신 편집된 문장과 날짜별 집계만 남겼습니다.'],
     result: '학습 태도와 공개 가능한 성장 기록을 제공합니다. 보안 시스템의 운영 성과나 탐지 성능을 주장하지 않습니다.',
     learning: '이해한 것과 추가 확인할 것을 구분해 다음 학습 행동으로 연결합니다.',
-    limits: '라우터 연결 실습은 본인 확인에 따른 학습 경험이며 GNS 파일을 이번 작업에서 실행하거나 검증하지 않았습니다. 글·사진 증빙은 아직 없습니다. 구체적인 보안 시스템의 구현 역할·성능은 별도 자료 확인이 필요합니다.',
-    evidence: [{label: '보존된 학습·성장 기록', href: '/#growth'}, {label: '공개 경험기술서', href: '/documents/experience.md'}],
+    limits: '라우터 연결 실습은 본인 확인에 따른 학습 경험이며 GNS 파일 실행·글·사진 증빙은 확인하지 않았습니다. BYTE BACK·DAAT의 제작 범위와 검증 한계는 각 상세 페이지에서 구분합니다.',
+    evidence: [{label: 'BYTE BACK 보안 자료실', href: '/projects/byte-back/'}, {label: 'DAAT 보안 대시보드', href: '/projects/daat-defense/'}, {label: '보존된 학습·성장 기록', href: '/#growth'}, {label: '공개 경험기술서', href: '/documents/experience.md'}],
   },
 ];
 
@@ -96,6 +99,9 @@ export const strengths = [
 ];
 
 export const skills = [
+  {title: '웹 서비스 · 인증', tools: 'Next.js · TypeScript · PostgreSQL · Supabase · WebAuthn', usage: 'AI 보조 개인 제작. 계획·실행·회고, 세션과 패스키·계정 소유권 검사', slug: 'plan-do-see'},
+  {title: '보안 실습 · 상태 전달', tools: 'Server API · Device Session · XDR · JavaScript', usage: '제공 기반 위에 AI와 접근 제어·기기 승인·경보 판정·대시보드를 추가. 운영 성과와 구분', slug: 'byte-back'},
+  {title: '시각화 · 상호작용', tools: 'Three.js · Canvas · GeoJSON · LocalStorage', usage: 'AI 보조로 지진 시각화·오류 대응, 이미지 편집기와 키보드 게임 제작', slug: 'earthquake-globe'},
   {title: 'NLP 모델 실험', tools: 'Python · PyTorch · Hugging Face Transformers · TAPT · Ensemble', usage: '감성분석 모델 비교와 학습 전략 실험', slug: 'movie-review'},
   {title: '뉴스 · 가격 모델링', tools: 'FinBERT · Attention · XGBoost · LightGBM', usage: '뉴스 표현 비교와 앙상블 구조 설계', slug: 'commodity-assistant'},
   {title: 'LLM 데이터 · 학습 시도', tools: 'EDA · Labeling · Answer Shuffle · DPO · CoT', usage: '정답 분포 전처리, DPO 학습 시도와 CoT 미검증 범위', slug: 'exam-llm'},
@@ -105,6 +111,6 @@ export const skills = [
 
 export const experiences = [
   {period: '기간 전체 미확인', title: '네이버 부스트캠프 AI Tech · NLP 프로젝트', text: '감성분석, 수능형 문제 풀이, 원자재 어시스턴트 경험. 과정 전체의 시작·종료일과 수료 여부는 확인 자료가 없어 표시하지 않습니다.', slug: 'commodity-assistant'},
-  {period: '2026.08 — 학습 기록', title: 'SKT-ALEPH · 보안·네트워크·웹앱 학습', text: '질문·문서화·팀 토론과 라우터 연결 실습 경험이 있습니다. GNS 프로젝트 파일을 보유하고 있으며 실습 글·사진은 정리 예정입니다. 공식 재직 경력으로 표시하지 않습니다.', slug: 'security-learning'},
+  {period: '2026.08부터 학습 · 09–11 제작 기록', title: 'SKT-ALEPH · 보안·네트워크·웹앱 학습', text: 'AI 도구를 활용해 개인으로 다이어리·보안 자료실·상태 대시보드·시각화·편집 도구·게임을 제작했습니다. 라우터 연결 실습의 GNS 파일은 보유하고 있으며 글·사진은 보완 예정입니다. 공식 재직 경력이나 과정 수료를 뜻하지 않습니다.', slug: 'security-learning'},
   {period: '2026.11 · 공개 결과물', title: '단백질 GO 개인 연구와 Explorer', text: 'AI 도구의 도움을 받아 개인으로 연구와 앱 제작을 진행하고, 통계와 분포를 정적 탐색 도구로 연결했습니다.', slug: 'protein-go'},
 ];

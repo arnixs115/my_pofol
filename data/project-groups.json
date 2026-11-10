@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ai",
+    "title": "AI · NLP",
+    "slugs": [
+      "odqa",
+      "exam-llm",
+      "movie-review",
+      "commodity-assistant"
+    ]
+  },
+  {
+    "id": "web",
+    "title": "웹 서비스 · 시각화",
+    "slugs": [
+      "plan-do-see",
+      "earthquake-globe",
+      "finger-shift",
+      "dev-meme-studio"
+    ]
+  },
+  {
+    "id": "security",
+    "title": "보안 · 네트워크",
+    "slugs": [
+      "byte-back",
+      "daat-defense",
+      "security-learning"
+    ]
+  },
+  {
+    "id": "bio",
+    "title": "Bio · 연구 도구",
+    "slugs": [
+      "protein-go"
+    ]
+  }
+]

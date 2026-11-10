@@ -15,8 +15,8 @@ export default function Portfolio() {
   return <>
     <section id="projects" className="shell section portfolio-section">
       <div className="section-heading"><div><p className="eyebrow">04 / PROJECTS</p><h2>실험을 설명하고,<br/>근거로 연결합니다.</h2></div><a className="text-link" href={publicAsset('/projects/')}>전체 프로젝트 보기 ↗</a></div>
-      <p className="muted portfolio-intro">AI · NLP · Bio AI · Security. 개인의 시도와 팀 결과, 확인된 사실과 한계를 나누어 기록했습니다.</p>
-      <div className="project-grid">{projects.map(project => <ProjectCard key={project.slug} project={project} />)}</div>
+      <p className="muted portfolio-intro">AI 모델 실험에서 웹 서비스·보안·연구 도구까지. 팀에서 맡은 기여와 AI 도구를 활용한 개인 제작 경험을 소개합니다.</p>
+      <div className="project-grid">{['odqa','exam-llm','movie-review','commodity-assistant','plan-do-see','byte-back','daat-defense','protein-go'].map(slug => projects.find(project => project.slug === slug)!).map(project => <ProjectCard key={project.slug} project={project} />)}</div>
       <div className="strength-grid">{strengths.map(strength => <article key={strength.title}><h3>{strength.title}</h3><p>{strength.text}</p><a className="text-link" href={publicAsset(`/projects/${strength.slug}/`)}>관련 사례 →</a></article>)}</div>
     </section>
     <section id="skills" className="skills-section"><div className="shell section">

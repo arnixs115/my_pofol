@@ -3,7 +3,7 @@ import content from '../data/public-content.json';
 import { publicAsset } from '../lib/paths';
 import Portfolio from './components/Portfolio';
 
-const docs = [['resume','이력서','배움의 방향과 경험을 한눈에'],['self-introduction','자기소개서','경험이 일하는 태도가 되기까지'],['experience','프로젝트 경험기술서','연구와 학습 프로젝트의 근거']] as const;
+const docs = [['resume','기본 이력서','AI·웹·보안·연구 경험 전체 · 4쪽'],['self-introduction','자기소개서','경험이 일하는 태도가 되기까지'],['experience','프로젝트 경험기술서','역할·제작 과정·검증 범위 · 9쪽']] as const;
 
 export default function Home() {
   const total = stats.strength.practiced + stats.strength.partial + stats.strength.other;
@@ -15,7 +15,7 @@ export default function Home() {
     </header>
     <main id="main" tabIndex={-1}>
       <section className="hero shell grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
-        <div><p className="eyebrow">BR-A / PERSONAL PORTFOLIO</p><p className="role">AI · NLP · BIOINFORMATICS</p>
+        <div><p className="eyebrow">BR-A / PERSONAL PORTFOLIO</p><p className="role">AI · WEB · SECURITY · BIO</p>
           <h1>기록에서<br/>다음 <em>질문</em>으로.</h1>
           <p className="intro">생명정보학에서 AI와 서비스 개발로.<br/>배운 것을 연결하며 성장하는 <strong>허승환</strong>입니다.</p>
           <div className="flex flex-wrap gap-3 mt-8"><a className="button primary" href="#projects">프로젝트와 근거 보기 <span>↗</span></a><a className="button" href="#story">나의 이야기 ↓</a></div>

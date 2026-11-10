@@ -1,5 +1,6 @@
 """Check that published Markdown and PDFs contain the same text and link targets."""
 import re
+import argparse
 import unicodedata
 from pathlib import Path
 from pypdf import PdfReader
@@ -10,10 +11,10 @@ LINK = re.compile(r'\[([^\]]+)\]\((https?://[^\s)]+|mailto:[^\s)]+)\)')
 def normalize(value):
     return re.sub(r'\s+', '', unicodedata.normalize('NFC', value))
 
-def run():
-    for name, count in [('resume', 2), ('experience', 5)]:
-        source = (ROOT/'public/documents'/f'{name}.md').read_text(encoding='utf-8')
-        reader = PdfReader(ROOT/'public/documents'/f'{name}.pdf')
+def run(entries=None):
+    for name, count, md, pdf in entries or [(name, count, ROOT/'public/documents'/f'{name}.md', ROOT/'public/documents'/f'{name}.pdf') for name, count in [('resume', 4), ('experience', 9)]]:
+        source = md.read_text(encoding='utf-8')
+        reader = PdfReader(pdf)
         assert len(reader.pages) == count, f'{name}: unexpected pagination'
         assert not reader.attachments, f'{name}: embedded attachments'
         extracted = normalize('\n'.join(page.extract_text() or '' for page in reader.pages))
@@ -35,4 +36,11 @@ def run():
         print(f'PASS: {name}, {count} pages, {lines} source lines, {len(urls)} unique link targets')
 
 if __name__ == '__main__':
-    run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', type=Path)
+    parser.add_argument('--pdf', type=Path)
+    parser.add_argument('--pages', type=int)
+    args = parser.parse_args()
+    if any([args.source, args.pdf, args.pages]) and not all([args.source, args.pdf, args.pages]):
+        parser.error('--source, --pdf and --pages are required together')
+    run([('selected resume', args.pages, args.source, args.pdf)] if args.source else None)

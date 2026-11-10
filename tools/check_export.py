@@ -46,7 +46,11 @@ def run():
             if resolved.fragment and target.suffix == '.html':
                 assert unquote(resolved.fragment) in pages[target.resolve()].ids, f'Missing anchor: {relative}: {ref}'
             count += 1
-    for slug in ['movie-review', 'commodity-assistant', 'exam-llm', 'odqa', 'protein-go', 'security-learning']:
+    import json
+    groups = json.loads((ROOT/'data/project-groups.json').read_text(encoding='utf-8'))
+    slugs = [slug for group in groups for slug in group['slugs']]
+    assert len(slugs) == len(set(slugs)), 'Duplicate grouped project'
+    for slug in slugs:
         assert (OUT/'projects'/slug/'index.html').is_file(), 'Missing project: ' + slug
     assert (OUT/'projects/index.html').is_file()
     assert {'story', 'growth', 'work', 'contact', 'protein-go-project', 'projects', 'skills', 'experience'} <= pages[(OUT/'index.html').resolve()].ids
@@ -57,7 +61,8 @@ def run():
     for source in (ROOT/'public/protein-go').rglob('*'):
         if source.is_file():
             assert (OUT/source.relative_to(ROOT/'public')).read_bytes() == source.read_bytes(), str(source)
-    print(f'PASS: {len(pages)} HTML pages, {count} local references, 6 project details, 8 downloads, preserved Explorer; prefix={PREFIX!r}')
+    assert len(list((OUT/'projects').glob('*/index.html'))) == len(slugs), 'Project catalog and grouping differ'
+    print(f'PASS: {len(pages)} HTML pages, {count} local references, {len(slugs)} project details, 8 downloads, preserved Explorer; prefix={PREFIX!r}')
 
 if __name__ == '__main__':
     run()

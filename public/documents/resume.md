@@ -1,19 +1,19 @@
 # 허승환 이력서
 
-AI / NLP / Bioinformatics
+AI · NLP · WEB · SECURITY · BIO
 
 [이메일](mailto:jbheo2003@gmail.com) jbheo2003@gmail.com · [GitHub](https://github.com/arnixs115) · [포트폴리오](https://arnixs115.github.io/my_pofol/)
 
 ## 소개
 
-생명정보학을 전공하고 NLP 모델 실험과 데이터 분석 경험을 쌓아 왔습니다. ODQA에서는 EDA와 Reader 앙상블을, 수능형 LLM에서는 정답 분포 분석과 전처리를 수행했습니다. 개인 기여와 팀 성과를 구분하고, 실험 결과와 한계를 함께 설명합니다.
+생명정보학을 바탕으로 NLP 모델 실험과 데이터 분석을 경험하고, AI 도구를 활용해 웹 서비스·보안 실습 도구를 제작했습니다. Reader 앙상블과 LLM 전처리 등 팀 기여와 개인 제작을 구분하고, 결과와 검증 범위를 함께 설명합니다.
 
 ## 기술과 적용 경험
 
 - **NLP 모델 실험:** Python, PyTorch, Hugging Face Transformers. 영화 리뷰 분류 모델·TAPT·가중 앙상블 비교.
 - **Reader와 데이터 분석:** RoBERTa, Start/End Logit 결합, EDA, 정답 위치 shuffle. ODQA·LLM의 데이터와 출력 구조 분석.
 - **뉴스 모델링:** FinBERT, Attention, XGBoost, LightGBM. 뉴스 표현과 방향성 모델·신뢰도 결합 설계.
-- **웹과 재현성:** Next.js, TypeScript, Tailwind CSS, Python. AI 도구를 활용한 정적 포트폴리오·리추얼 집계기·연구 탐색 도구 제작.
+- **웹과 보안:** Next.js, TypeScript, Supabase, WebAuthn, JavaScript. AI 보조로 계획·실행 서비스, 인증·접근 제어 실습, 시각화·연구 도구 제작.
 
 ## 주요 프로젝트
 
@@ -69,4 +69,74 @@ AI / NLP / Bioinformatics
 
 학교·학위·졸업 시기와 교육 과정 전체 기간·수료 여부는 기재하지 않았습니다. 기술 목록은 프로젝트 사용 경험이며 숙련도 점수나 재직 경력을 뜻하지 않습니다.
 
-내용 갱신: 2026.11.09 | 세부 실험과 공개 출처는 프로젝트 경험기술서 및 포트폴리오 상세 페이지에 연결했습니다.
+내용 갱신: 2026.11.10 | 세부 실험과 공개 출처는 프로젝트 경험기술서 및 포트폴리오 상세 페이지에 연결했습니다.
+
+
+<!-- pagebreak -->
+
+## 웹 서비스와 보안
+
+아래 SKT ALEPH 제작물은 모두 AI 도구를 활용한 개인 프로젝트입니다. 제공된 시작 틀·엔진과 추가 제작 부분을 구분합니다.
+
+### Plan-Do-See Diary
+
+2026.09.28 - 2026.11.01 · 기획 채팅·커밋 기준 | Next.js · TypeScript · PostgreSQL · Supabase · WebAuthn
+
+- 계획·할 일 CRUD, 수정 이력, 실행 시작·일시정지·재개·종료와 CSV 내보내기를 연결했습니다. 작업 시간은 실행 구간의 합으로 계산했습니다.
+- 이메일 인증에 패스키 등록·로그인·삭제 흐름을 추가하고 챌린지를 DB에서 보관·소비하도록 구성했습니다.
+- **검증 범위:** 실제 Supabase·Vercel·실기기 패스키의 전체 동작은 이번 작업에서 확인하지 않았습니다.
+- [상세·코드·검증 범위](https://github.com/arnixs115/plan-do-see)
+
+### BYTE BACK 보안 자료실
+
+2026.10.06 - 2026.10.20 · 기획·개발 기록 기준 | JavaScript · Server API · Supabase Auth · WebAuthn · XDR
+
+- 가상 메모를 정적 파일에서 DB로 옮기고 메모 API에 로그인·소유권 검사를 적용했습니다.
+- 서버에서 승인 기기 세션의 소유자·만료·회수·자격 증명 상태를 검사하는 흐름을 구성했습니다.
+- **검증 범위:** 실제 기기·DB·배포 환경의 전체 흐름과 최종 심판 결과를 새로 검증하지 않았습니다.
+- [상세·코드·검증 범위](https://github.com/arnixs115/choi-bujang-secret-vault)
+
+### DAAT 보안 상태 대시보드
+
+2026.10.19 - 2026.11.03 · 커밋 기준 | JavaScript · Node.js · Windows · Dashboard
+
+- 사용자·기기·세션, 판정 결과, 사건 목록·필터·상세를 보여주는 학생 확장 화면을 구성했습니다.
+- CPU·메모리·디스크·방화벽 카드와 성공한 조회 표본을 최대 30개 유지하는 추이 차트·표를 추가했습니다.
+- **검증 범위:** 새 환경 재현·실제 SDP·AI 연결·보안 조치 집행을 이번 작업에서 검증하지 않았습니다.
+- [상세·코드·검증 범위](https://github.com/arnixs115/DAAT-defense/tree/master/on-client)
+
+
+<!-- pagebreak -->
+
+## 시각화와 작은 제작물
+
+아래 프로젝트는 AI 도구를 활용해 개인으로 제작했습니다. 기간은 기획 채팅·커밋의 관찰 범위이며 공식 과정 일정이나 작업 시간은 아닙니다.
+
+### USGS 지진 시각화와 오류 대응
+
+2026.09.17 - 2026.09.28 · 기획 채팅·커밋 기준 | JavaScript · Three.js · USGS GeoJSON · AbortController
+
+- USGS 최근 7일 M2.5+ 자료를 지구본 마커·상세 패널·시간 필터·KST 날짜별 집계로 연결했습니다.
+- 3초 요청 제한을 적용하고 4.5초 Slow fixture로 시간 초과를 재현하는 경로를 구성했습니다.
+- **범위:** 이번 작업에서 실시간 USGS 응답·브라우저·배포본을 실행 검증하지 않았습니다. 두 저장소를 독립된 두 성과로 중복 계산하지 않습니다.
+- [상세·제작 과정·코드](https://github.com/arnixs115/usgs-earthquake-globe)
+
+### Finger Shift
+
+2026.09.11 - 2026.09.14 · 커밋 기준 | JavaScript · HTML/CSS · LocalStorage
+
+- 현재 눌린 키와 목표 패턴을 집합으로 비교하고 난이도별 패턴을 생성하는 흐름을 구성했습니다.
+- 준비·진행·일시정지·결과 화면과 기록·목표 모드를 구성했습니다.
+- **범위:** 랭킹은 브라우저 로컬 기록이며 온라인 공용 리더보드가 아닙니다. 동점 순위 처리 제약이 있습니다.
+- [상세·제작 과정·코드](https://github.com/arnixs115/like_fingerdance)
+
+### Dev Meme Studio
+
+2026.09.15 - 2026.09.16 · 기획 채팅·커밋 기준 | JavaScript · Canvas · JSON · HTML/CSS
+
+- 배경·텍스트·이미지 스티커의 위치·크기·색상과 화면비를 편집하도록 구성했습니다.
+- 공통 Canvas 렌더링 경로로 PNG·JPEG 다운로드를 만들고 템플릿을 JSON으로 저장·불러오도록 했습니다.
+- **범위:** 자동 밈 수집·AI 템플릿 생성·DB 공유는 후속 구상이며 구현 기능이 아닙니다. 이번 작업에서 이미지 출력 품질을 새로 시험하지 않았습니다.
+- [상세·제작 과정·코드](https://github.com/arnixs115/dev-meme-studio)
+
+전체 경험을 보존한 기본 이력서입니다. 지원 회사의 주요 업무에 맞춰 프로젝트를 선별해 사용할 수 있습니다. 기간의 관찰 기준과 AI 보조 제작·검증 한계는 유지합니다.

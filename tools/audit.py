@@ -25,7 +25,7 @@ def run(deny=()):
             texts=['\n'.join(page.extract_text() or '' for page in reader.pages),str(reader.metadata)]
             if reader.attachments:
                 failures.append(rel+': embedded attachments')
-        elif p.suffix in {'.json','.ts','.tsx','.js','.mjs','.css','.html','.txt','.md','.svg'}:
+        elif p.suffix in {'.json','.ts','.tsx','.js','.mjs','.cjs','.css','.html','.txt','.md','.svg'}:
             texts=[p.read_text(encoding='utf-8')]
         elif p.suffix=='.zip':
             with zipfile.ZipFile(p) as z:

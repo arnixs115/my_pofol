@@ -26,8 +26,8 @@ def inline(text):
     text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
     return text
 
-def build(name, output):
-    source = ROOT / 'public/documents' / f'{name}.md'
+def build(name, output, source=None):
+    source = source or ROOT / 'public/documents' / f'{name}.md'
     styles = {
         'body': ParagraphStyle('Body', fontName='Portfolio', fontSize=10.1, leading=16.6, textColor=INK, spaceAfter=8, wordWrap='CJK'),
         'title': ParagraphStyle('Title', fontName='PortfolioBold', fontSize=23, leading=31, textColor=INK, spaceAfter=15, keepWithNext=True),
@@ -38,7 +38,7 @@ def build(name, output):
     title = '허승환 이력서' if name == 'resume' else '허승환 프로젝트 경험기술서'
     doc = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=45, leftMargin=45,
                             topMargin=49, bottomMargin=46, title=title, author='허승환',
-                            subject='AI 및 NLP 프로젝트 역할과 실험 결과', creator='Portfolio document builder',
+                            subject='AI·웹·보안·연구 프로젝트 역할과 결과', creator='Portfolio document builder',
                             invariant=1, pageCompression=1)
     story = []
     block = []
@@ -78,12 +78,20 @@ if __name__ == '__main__':
     parser.add_argument('--font-regular', type=Path, default=Path('C:/Windows/Fonts/malgun.ttf'))
     parser.add_argument('--font-bold', type=Path, default=Path('C:/Windows/Fonts/malgunbd.ttf'))
     parser.add_argument('--output-dir', type=Path, default=ROOT/'public/documents')
+    parser.add_argument('--source', type=Path, help='Render a selected Markdown source as a resume.')
+    parser.add_argument('--output', type=Path, help='PDF destination for --source.')
     args = parser.parse_args()
     if not args.font_regular.is_file() or not args.font_bold.is_file():
         parser.error('Provide Korean-capable TrueType files with --font-regular and --font-bold.')
     pdfmetrics.registerFont(TTFont('Portfolio', str(args.font_regular)))
     pdfmetrics.registerFont(TTFont('PortfolioBold', str(args.font_bold)))
     pdfmetrics.registerFontFamily('Portfolio', normal='Portfolio', bold='PortfolioBold', italic='Portfolio', boldItalic='PortfolioBold')
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    for name in ['resume', 'experience']:
-        build(name, args.output_dir/f'{name}.pdf')
+    if args.source:
+        if not args.output:
+            parser.error('--source requires --output')
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        build('resume', args.output, args.source)
+    else:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+        for name in ['resume', 'experience']:
+            build(name, args.output_dir/f'{name}.pdf')
