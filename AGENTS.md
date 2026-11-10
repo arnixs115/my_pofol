@@ -41,3 +41,5 @@ Repeat build/export checks with `NEXT_PUBLIC_BASE_PATH=/my_pofol`. PowerShell: `
 Browser review should include home sections, project list, every detail, keyboard navigation, phone width, documents and Explorer. Record limitations honestly. External links require a separate online reachability check; the export checker validates local references and fragments only.
 
 For resume/experience updates, edit the `.md` sources, install `tools/document-requirements.txt`, and run `python tools/build_documents.py`. Render and inspect every PDF page before committing the Markdown and PDF together. `tools/check_documents.py` checks source text, page counts and PDF hyperlinks; it does not replace visual review. Korean fonts are detected on Windows or supplied with `--font-regular` and `--font-bold`.
+
+In the experience document, every project's metadata uses four separate rows in this order: 기간, 소속·형태, 역할, 기술. Keep titles free of date suffixes and keep the role summary short; preserve detailed contributions and attempted methods in the body. Retain observed-date qualifications and AI-assisted work boundaries. Metadata must not wrap mid-word or split across pages.

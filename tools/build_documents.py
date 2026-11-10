@@ -34,7 +34,13 @@ def build(name, output, source=None):
         'h2': ParagraphStyle('Section', fontName='PortfolioBold', fontSize=14, leading=21, textColor=INK, spaceBefore=16, spaceAfter=9, keepWithNext=True),
         'h3': ParagraphStyle('Subsection', fontName='PortfolioBold', fontSize=10.8, leading=17, textColor=BLUE, spaceBefore=11, spaceAfter=6, keepWithNext=True),
         'bullet': ParagraphStyle('Bullet', fontName='Portfolio', fontSize=10.1, leading=16.6, textColor=INK, leftIndent=11, firstLineIndent=-9, spaceAfter=6, wordWrap='CJK'),
+        'metadata': ParagraphStyle('Metadata', fontName='Portfolio', fontSize=9.5, leading=14.5, textColor=MUTED, spaceAfter=2, keepWithNext=True),
     }
+    if name == 'experience':
+        styles['body'].spaceAfter = 6
+        styles['bullet'].spaceAfter = 5
+        styles['h3'].spaceBefore = 9
+        styles['h3'].spaceAfter = 5
     title = '허승환 이력서' if name == 'resume' else '허승환 프로젝트 경험기술서'
     doc = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=45, leftMargin=45,
                             topMargin=49, bottomMargin=46, title=title, author='허승환',
@@ -60,6 +66,9 @@ def build(name, output, source=None):
         elif line.startswith('- '):
             flush()
             story.append(Paragraph('• ' + inline(line[2:]), styles['bullet']))
+        elif name == 'experience' and re.match(r'^\*\*(기간|소속·형태|역할|기술):\*\* ', line):
+            flush()
+            story.append(Paragraph(inline(line), styles['metadata']))
         else:
             block.append(line)
     flush()
