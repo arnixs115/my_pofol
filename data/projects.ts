@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     slug: 'movie-review', category: 'NLP · TEXT CLASSIFICATION', title: '영화 리뷰 감성 분석',
     summary: '모호한 감성의 경계를 다루며, 모델과 학습 전략을 비교한 4-class 분류 실험.',
-    period: '기간 미확인', role: '모델 개발과 리더보드 제출은 개인 프로젝트로 진행했습니다. 팀으로 함께 공부하고 다른 리더보드 참여자들과 실험 과정·결과를 자주 공유했습니다.',
+    period: '2025.10.22 - 2025.10.30', role: '모델 개발과 리더보드 제출은 개인 프로젝트로 진행했습니다. 팀으로 함께 공부하고 다른 리더보드 참여자들과 실험 과정·결과를 자주 공유했습니다.',
     technologies: ['Python', 'PyTorch', 'Transformers', 'TAPT', 'Ensemble'],
     problem: '강한 긍정·약한 긍정·약한 부정·강한 부정을 구분해야 했습니다. 클래스 불균형, 감성 경계의 모호함과 허용 사전학습 모델의 제약이 있었습니다.',
     actions: ['클래스가 적은 감성에는 Augmented 데이터를 유지하고, 많은 감성에는 Original 데이터를 사용하는 조합을 실험해 개선을 확인했습니다.', 'Focal Loss 기반 Custom Trainer를 구현했지만 Validation Loss가 불안정해졌습니다. 해당 제출의 Accuracy는 Public 0.7778·Private 0.7780으로 기대한 개선을 얻지 못했습니다.', '3개 모델을 결합한 ensemble과 사용 가능한 5개 모델 전체를 결합한 ensemble5를 비교한 뒤, 5개 모델에 가중치를 적용한 weighted_ensemble5를 실험했습니다. ensemble5는 Public 0.8375·Private 0.8363, weighted_ensemble5는 0.8371·0.8381로 두 평가의 결과가 엇갈렸습니다.', '3-fold 실험에서는 비슷한 Loss·Accuracy와 저장 공간 부족을 겪었습니다. kfold_ensemble 제출은 0.8361·0.8376을 기록했습니다. 이후 다른 모델 조합과 공유된 TAPT 코드를 활용한 모델의 앙상블을 비교해 최종 제출을 선택했습니다.'],
