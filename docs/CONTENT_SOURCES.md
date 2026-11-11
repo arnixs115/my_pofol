@@ -84,3 +84,9 @@ PDF 코멘트의 “개인 회고에서는”, “공개 저장소·기존 포�
 - Dev Meme Studio: Canvas 렌더링과 JSON 입력 검증 코드 확인. 자동 수집·AI 템플릿·DB는 09/28 확장 구상으로만 남기고 구현 성과에서 제외.
 
 전체 이력서·경험기술서는 확인한 기능과 역할을 재구성한 기본 자료입니다. 새로운 수료·재직·사용자 수·운영 성능을 추가하지 않았으며 원본 과제 채팅과 민감한 시험 데이터는 게시하지 않았습니다.
+
+## 팀 전체 구성 보완 · 2026-11-11
+
+기존에 보관한 고정 커밋 README를 다시 읽고 팀 전체 기능을 추가했습니다. ODQA 133875f3의 주요 구현 기능은 BM25·Dense Hybrid·Reranking, Negative Sampling·Curriculum Learning, Reader 4종 결합입니다. 수능형 LLM 48051940은 데이터 증강·전처리, Unsloth·LoRA SFT, Thinking 모델, 한국사 Corpus·FAISS/BM25 RAG와 Hard Voting을 설명합니다. 원자재 6df5322a는 Airflow 수집·저장, Prophet·XGBoost와 FinBERT 뉴스 분석, LangChain Agent·과거 뉴스 조회, GCP·Streamlit 보고서 흐름을 설명합니다.
+
+이를 사이트의 팀 전체 시스템 영역, 기본 이력서의 팀 전체/나의 기여/팀 결과, 경험기술서의 담당 범위에 반영했습니다. 팀원 이름·개별 역할표는 새로 게시하지 않았습니다. 원자재 전체 파이프라인 백테스트를 개인 뉴스 모델의 수익·방어 성과로 쓰지 않고, 개인 DPO·CoT 시도를 팀 모델의 검증 성과로 확대하지 않습니다. 영화 리뷰는 공동 개발·공동 제출로 바꾸지 않았습니다.

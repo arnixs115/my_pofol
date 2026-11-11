@@ -17,6 +17,7 @@
 - The master resume has 4 pages and experience document 9. `tools/create_resume.cjs` selects exactly 3 projects for a 2-page application draft. Keep generated company drafts outside the repository or in ignored `private/`; retain role, AI usage and verification limits.
 - Every claim needs a public source. Distinguish personal work, team features, team results, attempted methods and unverified information.
 - Never invent roles, dates, scores, links or proficiency percentages. Preserve the documented source conflicts until the owner provides evidence.
+- For team projects, keep the optional team overview/pipeline/result separate from personal role/actions. Do not move team infrastructure or models into personal skills. Movie-review remains personal development/submission with shared study, not a joint team submission.
 - Do not publish raw rituals, teammate details, private reports, secrets, phone numbers or home addresses. The existing public contact email is the only approved email.
 - Do not add databases, analytics, AI APIs or runtime secrets to this static portfolio.
 

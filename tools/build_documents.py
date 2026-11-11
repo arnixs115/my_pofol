@@ -36,11 +36,13 @@ def build(name, output, source=None):
         'bullet': ParagraphStyle('Bullet', fontName='Portfolio', fontSize=10.1, leading=16.6, textColor=INK, leftIndent=11, firstLineIndent=-9, spaceAfter=6, wordWrap='CJK'),
         'metadata': ParagraphStyle('Metadata', fontName='Portfolio', fontSize=9.5, leading=14.5, textColor=MUTED, spaceAfter=2, keepWithNext=True),
     }
-    if name == 'experience':
-        styles['body'].spaceAfter = 6
-        styles['bullet'].spaceAfter = 5
-        styles['h3'].spaceBefore = 9
-        styles['h3'].spaceAfter = 5
+    styles['body'].spaceAfter = 6
+    styles['bullet'].spaceAfter = 5
+    styles['h3'].spaceBefore = 9
+    styles['h3'].spaceAfter = 5
+    if name == 'resume':
+        styles['h2'].spaceBefore = 12
+        styles['h2'].spaceAfter = 7
     title = '허승환 이력서' if name == 'resume' else '허승환 프로젝트 경험기술서'
     doc = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=45, leftMargin=45,
                             topMargin=49, bottomMargin=46, title=title, author='허승환',

@@ -2,10 +2,11 @@ import additionalProjects from './additional-projects.json';
 
 export type Evidence = { label: string; href: string };
 export type ExperimentTable = { caption: string; columns: string[]; rows: string[][]; note: string };
+export type TeamContext = { overview: string; pipeline: string[]; result: string };
 export type Project = {
   slug: string; category: string; title: string; summary: string; period: string;
   role: string; technologies: string[]; problem: string; actions: string[];
-  result: string; learning: string; limits: string; evidence: Evidence[]; experiments?: ExperimentTable[];
+  result: string; learning: string; limits: string; evidence: Evidence[]; experiments?: ExperimentTable[]; team?: TeamContext;
 };
 
 const source = 'https://github.com/arnixs115/my_portpolio/blob/b57f2ece393bf7592d7001ea7364ed20975e8699/src/data/portfolioData.js';
@@ -26,9 +27,14 @@ export const projects: Project[] = [
   },
   {
     slug: 'commodity-assistant', category: 'AI · NEWS & TIME SERIES', title: '원자재 투자 결정 어시스턴트',
+    team: {
+      overview: '팀은 원자재 시세·뉴스 수집에서 시계열·뉴스 모델 분석, LLM 판단과 설명 보고서 출력까지 연결하는 어시스턴트를 구성했습니다.',
+      pipeline: ['Airflow로 시세·뉴스 수집 및 저장', 'Prophet·XGBoost 시계열 분석과 FinBERT 뉴스 분석', 'LangChain Agent와 과거 뉴스 조회를 통한 설명 구성', 'GCP 적재·Streamlit 보고서 화면'],
+      result: '팀 전체 파이프라인은 9개월 데이터·거래 수수료 0.1% 조건으로 백테스트했습니다. 이는 개인 뉴스 모델만의 성과가 아니며 운영 투자 성과를 뜻하지 않습니다.',
+    },
     summary: '뉴스의 감성과 가격 데이터를 연결해 시장 방향을 분석하는 팀 프로젝트.',
     period: '2026.01.16 — 2026.02.07 · 팀 README 기준',
-    role: '기사 데이터 기반 모델링(FinBERT) 및 앙상블 구조 설계. 팀 README의 허승환 담당 항목 기준입니다.',
+    role: '기사 데이터 모델링(FinBERT)과 앙상블 구조 설계, 근거 뉴스 추출을 맡았습니다. 수집·클라우드·전체 보고서 파이프라인은 팀 작업입니다.',
     technologies: ['FinBERT', 'Attention', 'Ensemble', 'XGBoost', 'LightGBM'],
     problem: '뉴스와 시계열 데이터를 종합해 원자재 가격 변동의 방향과 설명을 제공해야 했습니다.',
     actions: ['기사 제목·설명 임베딩과 FinBERT 감성을 뉴스 모델의 입력으로 활용했습니다. XGBoost·LightGBM과 threshold 조정에서 예측이 한쪽으로 쏠리는 문제를 확인했습니다.', 'Attention을 적용한 뒤에도 쏠림이 남아, Positive·Negative·Tri-label 모델의 예측 일치도와 신뢰도를 결합하는 앙상블을 설계했습니다.', '의견 일치·충돌에 따라 신뢰도를 감쇄하고 최종 상승·하락·유지 방향을 정했습니다. 근거 뉴스 추출을 담당했으나, LLM을 활용한 추가 정교화는 완료하지 못했습니다.'],
@@ -40,9 +46,14 @@ export const projects: Project[] = [
   },
   {
     slug: 'exam-llm', category: 'LLM · LEARN & APPLY', title: '수능형 LLM 문제 풀이',
+    team: {
+      overview: '팀은 한국어 시험 문제 풀이를 위해 데이터 증강·전처리, SFT·LoRA, Thinking 모델 추론과 한국사 RAG를 구성하고 모델 응답을 Hard Voting으로 결합했습니다.',
+      pipeline: ['학습 데이터 증강·라벨링·전처리', 'Unsloth·LoRA 기반 SFT와 Thinking 모델 추론', '한국사 Corpus·FAISS/BM25 Hybrid 검색', '모델별 응답 Hard Voting'],
+      result: '최종 팀 성적은 Public 8위/16팀(Macro-F1 0.8129), Private 7위/16팀(Macro-F1 0.7403)입니다. 개인 DPO·CoT 시도의 효과와 구분합니다.',
+    },
     summary: '데이터 구성과 학습·추론 방법을 바꾸며 한국어 시험 문제 풀이를 탐색.',
     period: '2025.12.17 — 2026.01.06',
-    role: '팀 Notion 설계, EDA·라벨링 참여, 선지 수 통일·정답 위치 shuffle 전처리, DPO 학습과 CoT 적용 시도. 보고서 개인 회고와 팀 역할 표 기준입니다.',
+    role: 'EDA·라벨링 참여, 선지 수 통일·정답 위치 shuffle 전처리와 팀 Notion 설계를 맡았습니다. DPO 학습과 CoT 적용은 개인 시도로 진행했습니다.',
     technologies: ['LLM', 'DPO', 'CoT', 'EDA', 'Data Labeling'],
     problem: '한국어 시험 문제를 풀기 위해 작은 언어모델의 학습 데이터와 추론 방법을 조정해야 했습니다.',
     actions: ['4·5지선다 혼재와 5지선다의 1번 정답 편향 61.74%를 확인했습니다. 선지 수를 통일하고 정답 위치를 shuffle하는 전처리를 수행했습니다.', '팀이 분담한 총 2,031건의 학습 데이터 라벨링에 참여했습니다. 이 전체 수량을 개인 처리량으로 주장하지 않습니다.', 'DPO 학습에서 Loss 0 수렴을 관찰했습니다. 파라미터·중복 데이터·Loss 정의 등 가능성을 검토했으나 원인을 확정하지 못했습니다.', '생성 단계와 CoT 데이터 활용으로 방향을 바꾸고 프롬프트·코드를 일부 수정했지만, 서버 자원과 마감 제약으로 효과를 검증하지 못했습니다. SFT·LoRA, 한국사 RAG와 최종 앙상블은 팀 전체 작업입니다.'],
@@ -54,6 +65,11 @@ export const projects: Project[] = [
   },
   {
     slug: 'odqa', category: 'NLP · RETRIEVAL / RAG', title: 'Open Domain Question Answering',
+    team: {
+      overview: '팀은 문서를 찾는 Retriever와 정답 구간을 추출하는 Reader를 연결한 ODQA 시스템을 구성했습니다. 검색·재정렬·학습 데이터 구성·Reader 결합을 분담했습니다.',
+      pipeline: ['BM25·Dense Retrieval의 Hybrid 문서 검색', 'Reranking으로 관련 문서 재정렬', 'Negative Sampling·Curriculum Learning 기반 Reader 학습', 'Reader 4종 Start/End Logit 앙상블'],
+      result: '최종 팀 성적은 Public 4위/16팀(EM 75.00, F1 83.62), Private 7위/16팀(EM 68.61, F1 79.87)입니다. EDA·Reader 앙상블은 이 시스템 안에서 맡은 개인 기여입니다.',
+    },
     summary: 'Context·Answer 길이를 분석하고 Reader 4종의 Start/End Logit 앙상블을 구성한 ODQA 프로젝트.',
     period: '2025.12.01 — 2025.12.11 · 팀 README 기준', role: 'EDA와 앙상블 담당. Retriever·Reader 2단계 시스템에서 데이터 길이 분포 분석과 Reader 모델 결합에 참여했습니다.',
     technologies: ['EDA', 'RoBERTa', 'Reader Ensemble', 'Start/End Logits'],

@@ -39,7 +39,9 @@ function main() {
     const action = p.actions[0];
     const short = text => text.match(/^.*?[다요]\.(?=\s|$)/)?.[0] || text;
     const proof = p.evidence.find(item => item.href.startsWith('https://'))?.href || 'https://arnixs115.github.io/my_pofol/projects/'+p.slug+'/';
-    return '\n### '+p.title+'\n\n'+p.period+'\n\n- **담당·제작 방식:** '+short(p.role)+'\n- '+short(action)+'\n- **결과:** '+short(p.result)+'\n- **검증 범위:** '+short(p.limits)+'\n\n[코드와 근거]('+proof+')\n';
+    const team = p.team ? '- **팀 전체:** '+short(p.team.overview)+'\n' : '';
+    const result = p.team ? p.team.result : p.result;
+    return '\n### '+p.title+'\n\n'+p.period+'\n\n'+team+'- **담당·제작 방식:** '+short(p.role)+'\n- **나의 기여:** '+short(action)+'\n- **'+(p.team ? '팀 결과' : '결과')+':** '+result+'\n- **검증 범위:** '+short(p.limits)+'\n\n[코드와 근거]('+proof+')\n';
   }
   const body = intro+section(selected[0],0)+'\n<!-- pagebreak -->\n\n## 프로젝트 경험\n'+section(selected[1],1)+section(selected[2],2)+'\n추가 경험과 코드·평가 조건은 포트폴리오에서 확인할 수 있습니다.\n';
   fs.mkdirSync(output,{recursive:true});

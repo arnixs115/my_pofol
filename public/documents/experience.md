@@ -1,8 +1,8 @@
 # 허승환 프로젝트 경험기술서
 
-AI / NLP / Bioinformatics
+AI · NLP · WEB · SECURITY · BIO
 
-[이메일](mailto:jbheo2003@gmail.com) jbheo2003@gmail.com · [포트폴리오](https://arnixs115.github.io/my_pofol/) · 내용 갱신 2026.11.10
+[이메일](mailto:jbheo2003@gmail.com) jbheo2003@gmail.com · [포트폴리오](https://arnixs115.github.io/my_pofol/) · 내용 갱신 2026.11.11
 
 ## 01 ODQA Reader 분석과 앙상블
 
@@ -16,7 +16,7 @@ AI / NLP / Bioinformatics
 
 ### 문제와 담당 범위
 
-Wikipedia에서 관련 문서를 검색한 뒤 정답 구간을 추출하는 Retriever-Reader 2단계 시스템입니다. 문맥 길이에 따른 입력 손실과 모델 간 출력 호환성을 살피며 데이터 길이 분석과 Reader 결합에 참여했습니다. Retriever·Reranker 전체를 개인 구현으로 주장하지 않습니다.
+팀은 BM25·Dense Hybrid 검색과 Reranking으로 문서를 선별하고 Reader가 정답 구간을 추출하는 ODQA 시스템을 구성했습니다. Negative Sampling·Curriculum Learning과 Reader 4종 결합을 적용했습니다. 저는 Context·Answer 길이 분석과 Reader 앙상블을 담당했습니다.
 
 ### 시도와 판단
 
@@ -54,7 +54,9 @@ Public F1 78.66은 Curriculum Learning 결과이며 최종 앙상블 83.62와의
 
 ### 문제와 담당 범위
 
-한국어 시험 문제를 풀기 위해 데이터 형식·정답 분포와 학습·추론 방식을 조정하는 팀 프로젝트입니다. 개인의 구체적인 기여는 EDA, 라벨링 참여, 선지 수 통일과 정답 위치 shuffle 전처리입니다. 팀 Notion 구조도 설계했습니다. SFT·LoRA, 한국사 RAG와 최종 앙상블은 팀 전체 작업입니다.
+팀은 데이터 증강·전처리, Unsloth·LoRA 기반 SFT, Thinking 모델 추론과 한국사 RAG를 구성하고 모델 응답을 Hard Voting으로 결합했습니다. 한국사 RAG에는 Corpus와 FAISS·BM25 Hybrid 검색을 사용했습니다.
+
+저는 EDA·라벨링 참여·선지 수 통일·정답 위치 shuffle과 팀 Notion 설계를 맡았습니다. SFT·RAG·최종 앙상블 전체 구현은 팀 작업이며, 개인 DPO·CoT 시도는 아래와 같이 구분합니다.
 
 ### 시도와 판단
 
@@ -135,7 +137,9 @@ DPO Loss 0의 원인은 미확정이고 CoT의 효과는 미검증입니다. 생
 
 ### 문제와 담당 범위
 
-뉴스와 가격 데이터를 종합해 원자재 시장 방향과 설명을 제공하는 팀 프로젝트입니다. 기사 모델링과 앙상블 구조 설계, 근거 뉴스 추출을 담당했습니다. GCP·Airflow·전체 보고서 파이프라인을 개인이 구현한 것으로 표시하지 않습니다.
+팀은 Airflow로 시세·뉴스를 수집하고, Prophet·XGBoost 시계열 분석과 FinBERT 뉴스 분석을 LangChain Agent에 연결했습니다. 과거 뉴스 조회와 LLM 판단으로 설명을 구성하고, GCP 적재·Streamlit 화면으로 보고서를 제공했습니다.
+
+저는 기사 데이터 모델링·앙상블 구조 설계와 근거 뉴스 추출을 담당했습니다. 뉴스 모델의 방향·신뢰도는 팀 전체 판단 흐름에 쓰이는 구성 요소이며, 수집·클라우드·전체 보고서 파이프라인은 팀 작업입니다.
 
 ### 시도와 판단
 
