@@ -1,0 +1,19 @@
+{
+  "catalog": {
+    "odqa": "ODQA Reader 분석과 앙상블",
+    "exam-llm": "수능형 LLM 데이터 분석과 전처리",
+    "movie-review": "영화 리뷰 감성 분석",
+    "commodity-assistant": "원자재 투자 결정 어시스턴트",
+    "protein-go": "Protein GO Research와 Explorer",
+    "security-learning": "보안·네트워크·웹앱 학습",
+    "byte-back": "BYTE BACK 보안 자료실",
+    "plan-do-see": "Plan-Do-See Diary",
+    "daat-defense": "DAAT 보안 상태 대시보드",
+    "earthquake-globe": "USGS 지진 시각화와 오류 대응",
+    "finger-shift": "Finger Shift",
+    "dev-meme-studio": "Dev Meme Studio"
+  },
+  "additional": [
+    "BR-A 포트폴리오와 리추얼 갱신 장치"
+  ]
+}

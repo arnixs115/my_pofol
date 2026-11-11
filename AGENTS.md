@@ -15,6 +15,7 @@
 - Additional ALEPH projects live in `data/additional-projects.json`; preserve the AI-assisted personal-work statement and provided-starter boundaries. Group every slug once in `data/project-groups.json`.
 - Use `docs/PROJECT_PERIODS.md` for observed planning/commit dates; do not label observed latest activity as a release, official course end or verified completion.
 - The master resume has 4 pages and experience document 9. `tools/create_resume.cjs` selects exactly 3 projects for a 2-page application draft. Keep generated company drafts outside the repository or in ignored `private/`; retain role, AI usage and verification limits.
+- The master resume must include separate named sections for every catalog entry and the BR-A project. Maintain `data/resume-coverage.json`; `tools/check_documents.py` checks this against the project groups. Selected two-page application drafts intentionally contain only the chosen projects.
 - Every claim needs a public source. Distinguish personal work, team features, team results, attempted methods and unverified information.
 - Never invent roles, dates, scores, links or proficiency percentages. Preserve the documented source conflicts until the owner provides evidence.
 - For team projects, keep the optional team overview/pipeline/result separate from personal role/actions. Do not move team infrastructure or models into personal skills. Movie-review remains personal development/submission with shared study, not a joint team submission.
@@ -44,3 +45,5 @@ Browser review should include home sections, project list, every detail, keyboar
 For resume/experience updates, edit the `.md` sources, install `tools/document-requirements.txt`, and run `python tools/build_documents.py`. Render and inspect every PDF page before committing the Markdown and PDF together. `tools/check_documents.py` checks source text, page counts and PDF hyperlinks; it does not replace visual review. Korean fonts are detected on Windows or supplied with `--font-regular` and `--font-bold`.
 
 In the experience document, every project's metadata uses four separate rows in this order: 기간, 소속·형태, 역할, 기술. Keep titles free of date suffixes and keep the role summary short; preserve detailed contributions and attempted methods in the body. Retain observed-date qualifications and AI-assisted work boundaries. Metadata must not wrap mid-word or split across pages.
+
+In each team project's introduction, put the team-wide work and the applicant's own contribution in separate paragraphs, with a blank Markdown line before the personal contribution.

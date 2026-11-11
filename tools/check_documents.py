@@ -1,6 +1,7 @@
 """Check that published Markdown and PDFs contain the same text and link targets."""
 import re
 import argparse
+import json
 import unicodedata
 from pathlib import Path
 from pypdf import PdfReader
@@ -34,6 +35,17 @@ def run(entries=None):
                     actual.add(str(action['/URI']))
         assert urls == actual, f'{name}: PDF link targets differ from Markdown'
         print(f'PASS: {name}, {count} pages, {lines} source lines, {len(urls)} unique link targets')
+    if entries is None:
+        coverage = json.loads((ROOT/'data/resume-coverage.json').read_text(encoding='utf-8'))
+        groups = json.loads((ROOT/'data/project-groups.json').read_text(encoding='utf-8'))
+        slugs = {slug for group in groups for slug in group['slugs']}
+        assert set(coverage['catalog']) == slugs, 'Resume coverage does not match project catalog'
+        source = (ROOT/'public/documents/resume.md').read_text(encoding='utf-8')
+        headings = [line[4:] for line in source.splitlines() if line.startswith('### ')]
+        expected = list(coverage['catalog'].values()) + coverage['additional']
+        for title in expected:
+            assert any(heading == title or heading.startswith(title + ' · ') for heading in headings), f'Missing resume project section: {title}'
+        print(f'PASS: master resume covers all {len(slugs)} catalog entries and {len(coverage["additional"])} additional project')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)

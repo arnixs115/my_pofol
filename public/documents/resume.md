@@ -1,6 +1,6 @@
 # 허승환 이력서
 
-AI · NLP · WEB · SECURITY · BIO
+전체 경험 · AI · NLP · WEB · SECURITY · BIO
 
 [이메일](mailto:jbheo2003@gmail.com) jbheo2003@gmail.com · [GitHub](https://github.com/arnixs115) · [포트폴리오](https://arnixs115.github.io/my_pofol/)
 
@@ -108,6 +108,14 @@ AI · NLP · WEB · SECURITY · BIO
 - **검증 범위:** 새 환경 재현·실제 SDP·AI 연결·보안 조치 집행을 이번 작업에서 검증하지 않았습니다.
 - [상세·코드·검증 범위](https://github.com/arnixs115/DAAT-defense/tree/master/on-client)
 
+### BR-A 포트폴리오와 리추얼 갱신 장치
+
+제작 기간 별도 확인 | 개인 프로젝트 · AI 보조 | Next.js · TypeScript · Python
+
+- 원본 성장 기록을 비공개로 유지하면서 공개용 통계·프로젝트·문서를 정적 사이트로 연결했습니다. Python 집계기는 같은 입력에서 같은 결과를 생성하도록 구성했습니다.
+- 날짜 순서·중복 입력·잘못된 입력을 검증하고 원본 자유 텍스트의 공개 여부를 확인했습니다. 기록 수를 객관적인 업무 성과나 출석률로 해석하지 않습니다.
+- [공개 소스](https://github.com/arnixs115/my_pofol) · [갱신 장치와 재현 예제](https://arnixs115.github.io/my_pofol/documents/ritual-updater.zip)
+
 
 <!-- pagebreak -->
 
@@ -141,5 +149,14 @@ AI · NLP · WEB · SECURITY · BIO
 - 공통 Canvas 렌더링 경로로 PNG·JPEG 다운로드를 만들고 템플릿을 JSON으로 저장·불러오도록 했습니다.
 - **범위:** 자동 밈 수집·AI 템플릿 생성·DB 공유는 후속 구상이며 구현 기능이 아닙니다. 이번 작업에서 이미지 출력 품질을 새로 시험하지 않았습니다.
 - [상세·제작 과정·코드](https://github.com/arnixs115/dev-meme-studio)
+
+## 추가 학습 경험
+
+### 보안·네트워크·웹앱 학습
+
+2026.08부터의 학습 기록 | SKT ALEPH | GNS · 라우터 연결 실습
+
+- 라우터 연결 실습을 수행하고 GNS 프로젝트 파일을 보유하고 있습니다. 구성 과정과 동작을 설명하는 글·사진은 정리 예정이며 파일 실행·네트워크 설정은 이번 작성에서 재검증하지 않았습니다.
+- [학습 경험과 확인 범위](https://arnixs115.github.io/my_pofol/projects/security-learning/)
 
 전체 경험을 보존한 기본 이력서입니다. 지원 회사의 주요 업무에 맞춰 프로젝트를 선별해 사용할 수 있습니다. 기간의 관찰 기준과 AI 보조 제작·검증 한계는 유지합니다.

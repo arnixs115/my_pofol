@@ -16,7 +16,9 @@ AI · NLP · WEB · SECURITY · BIO
 
 ### 문제와 담당 범위
 
-팀은 BM25·Dense Hybrid 검색과 Reranking으로 문서를 선별하고 Reader가 정답 구간을 추출하는 ODQA 시스템을 구성했습니다. Negative Sampling·Curriculum Learning과 Reader 4종 결합을 적용했습니다. 저는 Context·Answer 길이 분석과 Reader 앙상블을 담당했습니다.
+팀은 BM25·Dense Hybrid 검색과 Reranking으로 문서를 선별하고 Reader가 정답 구간을 추출하는 ODQA 시스템을 구성했습니다. Negative Sampling·Curriculum Learning과 Reader 4종 결합을 적용했습니다.
+
+저는 Context·Answer 길이 분석과 Reader 앙상블을 담당했습니다.
 
 ### 시도와 판단
 
